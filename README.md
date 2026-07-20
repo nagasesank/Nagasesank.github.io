@@ -1,35 +1,47 @@
-# Naga Sesank Portfolio
+# Naga Sesank
 
-Professional Cloud Security & Cybersecurity Portfolio
+Cloud Security Engineer | Security Architecture | AWS | Terraform | DevSecOps
 
-## Live Website
+[Live Portfolio]
+[LinkedIn]
+[GitHub]
 
-https://nagasesank.github.io
+---
 
-## Tech Stack
+## About
 
-- Next.js 15
-- TypeScript
-- Tailwind CSS
-- App Router
+Short introduction
 
-## Features
+---
 
-- Premium Portfolio
-- Featured Projects
-- Certifications
-- Project Gallery
-- Contact
+## Featured Projects
 
-## Project Structure
+Enterprise Multi-Cloud WAF Evaluation Platform
+
+AI-Powered AWS Security Incident Triage
 
 ...
 
-## Local Development
+---
 
-npm install
-npm run dev
+## Certifications
 
-## License
+AWS SAA
+ISO 27001 Lead Auditor
+CEH
+AWS Well-Architected Proficient
 
-MIT
+---
+
+## Tech Stack
+
+AWS
+Terraform
+TypeScript
+Next.js
+Tailwind CSS
+GitHub Actions
+
+---
+
+## Contact
