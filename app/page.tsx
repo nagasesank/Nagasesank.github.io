@@ -1,38 +1,25 @@
 import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
+import FeaturedProject from "@/components/FeaturedProject";
+import CoreSkills from "@/components/CoreSkills";
+import ProjectsGrid from "@/components/ProjectsGrid";
+import About from "@/components/About";
+import Certifications from "@/components/Certifications";
+import Contact from "@/components/Contact";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-slate-950 text-white">
+    <main className="min-h-screen bg-slate-950">
       <Navbar />
-
-      <section className="mx-auto flex min-h-screen max-w-7xl flex-col justify-center px-6 pt-16 lg:px-12">
-        <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-cyan-400">
-          Cloud Security Engineer
-        </p>
-
-        <h1 className="max-w-5xl text-5xl font-bold leading-tight md:text-7xl">
-          Building Production-Grade
-          <br />
-          Cloud Security Solutions
-        </h1>
-
-        <p className="mt-8 max-w-2xl text-lg leading-8 text-slate-300">
-          I design and build enterprise Cloud Security projects using AWS,
-          Terraform, Google Cloud and DevSecOps practices with a strong focus
-          on real-world implementation, security architecture and engineering
-          evidence.
-        </p>
-
-        <div className="mt-10 flex flex-wrap gap-4">
-          <button className="rounded-lg bg-cyan-500 px-6 py-3 font-semibold text-slate-950 transition hover:bg-cyan-400">
-            View Projects
-          </button>
-
-          <button className="rounded-lg border border-slate-600 px-6 py-3 font-semibold transition hover:border-cyan-400">
-            Read Articles
-          </button>
-        </div>
-      </section>
+      <Hero />
+      <FeaturedProject />
+      <CoreSkills />
+      <ProjectsGrid />
+      <About />
+      <Certifications />
+      <Contact />
+      <Footer />
     </main>
   );
 }
