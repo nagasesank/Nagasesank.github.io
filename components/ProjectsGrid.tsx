@@ -37,7 +37,7 @@ const projects = [
 
 export default function ProjectsGrid() {
   return (
-    <section className="bg-slate-950 py-24">
+    <section id="engineering-projects" className="bg-slate-950 py-24">
       <div className="mx-auto max-w-screen-2xl px-8 lg:px-16">
         <div className="mb-16">
           <span className="text-sm font-semibold uppercase tracking-[0.25em] text-cyan-400">

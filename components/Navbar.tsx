@@ -1,43 +1,43 @@
 import Link from "next/link";
 
 const navItems = [
-  { name: "Home", href: "/" },
-  { name: "Projects", href: "/projects" },
-  { name: "Blogs", href: "/blogs" },
-  { name: "About", href: "/about" },
-  { name: "Resume", href: "/resume" },
-  { name: "Contact", href: "/contact" },
+  { name: "Projects", href: "/#engineering-projects" },
+  { name: "Capabilities", href: "/#capabilities" },
+  { name: "Certifications", href: "/certifications" },
+  { name: "Contact", href: "/#contact" },
 ];
 
 export default function Navbar() {
   return (
-    <header className="fixed top-0 left-0 z-50 w-full border-b border-slate-800 bg-slate-950/80 backdrop-blur-lg">
-      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 lg:px-12">
+    <header className="fixed top-0 left-0 z-50 w-full border-b border-slate-800 bg-slate-950/95">
+      <div className="mx-auto flex min-h-16 max-w-screen-2xl items-center justify-between gap-4 px-5 py-3 lg:px-16">
         <Link
           href="/"
-          className="text-2xl font-bold tracking-wide text-white transition hover:text-cyan-400"
+          className="shrink-0 text-base font-semibold tracking-[0.16em] text-white hover:text-cyan-300"
         >
-          Surya
+          SURYA
         </Link>
 
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav aria-label="Primary navigation" className="flex items-center gap-4 sm:gap-6">
           {navItems.map((item) => (
             <Link
               key={item.name}
               href={item.href}
-              className="text-sm font-medium text-slate-300 transition hover:text-cyan-400"
+              className="text-xs font-medium text-slate-300 hover:text-cyan-300 sm:text-sm"
             >
               {item.name}
             </Link>
           ))}
         </nav>
 
-        <Link
-          href="/contact"
-          className="hidden rounded-lg bg-cyan-500 px-5 py-2.5 text-sm font-semibold text-slate-950 transition hover:bg-cyan-400 lg:inline-flex"
+        <a
+          href="https://github.com/nagasesank"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hidden shrink-0 border border-slate-600 px-4 py-2 text-xs font-semibold text-slate-100 hover:border-cyan-300 hover:text-cyan-200 lg:inline-flex"
         >
-          Let's Connect
-        </Link>
+          GitHub
+        </a>
       </div>
     </header>
   );
