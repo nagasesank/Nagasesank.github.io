@@ -110,10 +110,16 @@ export default function ProjectsGrid() {
               </dl>
 
               <a
+                href={`/projects/${project.slug}/`}
+                className="mt-6 inline-flex border-b border-cyan-300 pb-1 text-sm font-semibold text-cyan-200 hover:border-cyan-100 hover:text-cyan-100"
+              >
+                View Case Study
+              </a>
+              <a
                 href={project.repository}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-6 inline-flex border-b border-cyan-300 pb-1 text-sm font-semibold text-cyan-200 hover:border-cyan-100 hover:text-cyan-100"
+                className="ml-5 inline-flex border-b border-slate-500 pb-1 text-sm font-semibold text-slate-200 hover:border-cyan-100 hover:text-cyan-100"
               >
                 View GitHub repository
               </a>

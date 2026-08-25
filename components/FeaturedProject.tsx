@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const engineeringFlow = [
   {
@@ -113,13 +114,16 @@ export default function FeaturedProject() {
                 <dd className="mt-2 text-sm font-semibold text-cyan-100">Validated</dd>
               </div>
             </dl>
+            <Link href="/projects/multicloud-waf-platform/" className="mt-6 inline-flex w-full items-center justify-center bg-cyan-400 px-5 py-3 text-sm font-semibold text-slate-950 hover:bg-cyan-300">
+              View Case Study
+            </Link>
             <a
               href="https://github.com/nagasesank/multicloud-waf-platform"
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-6 inline-flex w-full items-center justify-center bg-cyan-400 px-5 py-3 text-sm font-semibold text-slate-950 hover:bg-cyan-300"
+              className="mt-3 inline-flex w-full items-center justify-center border border-slate-600 px-5 py-3 text-sm font-semibold text-slate-100 hover:border-cyan-300 hover:text-cyan-100"
             >
-              View GitHub repository
+              GitHub Repository
             </a>
           </aside>
         </div>
