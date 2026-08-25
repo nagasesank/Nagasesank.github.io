@@ -1,4 +1,5 @@
 import { portfolioProjects } from "@/components/project-data";
+import { publications } from "@/components/publication-data";
 
 function statusClasses(status: string) {
   if (status === "Validated") {
@@ -37,7 +38,9 @@ export default function ProjectsGrid() {
         </div>
 
         <div className="grid gap-5 lg:grid-cols-2 lg:gap-6">
-          {portfolioProjects.map((project) => (
+          {portfolioProjects.map((project) => {
+            const articleCount = publications.filter((article) => article.projectSlug === project.slug).length;
+            return (
             <article
               key={project.title}
               className="min-w-0 border border-slate-800 bg-slate-900/40 p-5 sm:p-6"
@@ -59,6 +62,8 @@ export default function ProjectsGrid() {
               </div>
 
               <p className="mt-5 leading-7 text-slate-300">{project.objective}</p>
+
+              {articleCount ? <p className="mt-3 text-xs font-semibold uppercase tracking-[.14em] text-cyan-200">{articleCount} Published {articleCount === 1 ? "Article" : "Articles"}</p> : null}
 
               <dl className="mt-6 grid gap-5 border-y border-slate-800 py-5 sm:grid-cols-2">
                 <div>
@@ -124,7 +129,8 @@ export default function ProjectsGrid() {
                 View GitHub repository
               </a>
             </article>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

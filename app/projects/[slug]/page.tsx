@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import { portfolioProjects } from "@/components/project-data";
+import { publications } from "@/components/publication-data";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -27,6 +28,23 @@ export default async function CaseStudyPage({ params }: Props) {
   if (!project) {
     notFound();
   }
+
+  const projectIndex = portfolioProjects.findIndex((item) => item.slug === slug);
+  const previousProject = portfolioProjects[projectIndex - 1];
+  const nextProject = portfolioProjects[projectIndex + 1];
+  const articles = publications.filter((publication) => publication.projectSlug === project.slug);
+  const standaloneArticles = articles.filter((article) => !article.series);
+  const seriesArticles = Array.from(
+    articles.reduce((groups, article) => {
+      if (article.series) {
+        groups.set(article.series, [...(groups.get(article.series) ?? []), article]);
+      }
+      return groups;
+    }, new Map<string, typeof articles>()),
+  ).map(([series, entries]) => ({
+    series,
+    entries: [...entries].sort((left, right) => (left.part ?? 0) - (right.part ?? 0)),
+  }));
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-200">
@@ -66,13 +84,16 @@ export default async function CaseStudyPage({ params }: Props) {
             </a>
           </header>
 
-          <section className="grid gap-6 py-10 sm:grid-cols-3">
-            {[['Security problem', project.objective], ['Architecture approach', project.architecture], ['Implementation approach', project.implementation]].map(([heading, content]) => (
+          <section aria-labelledby="snapshot-heading" className="py-8">
+            <h2 id="snapshot-heading" className="text-2xl font-semibold text-white">Engineering snapshot</h2>
+            <div className="mt-5 grid gap-4 sm:grid-cols-2">
+            {[['Security problem', project.objective], ['Architecture', project.architecture], ['Implementation', project.implementation], ['Validation and evidence', `${project.validation} Evidence: ${project.evidence}.`]].map(([heading, content]) => (
               <div key={heading}>
                 <h2 className="font-semibold text-white">{heading}</h2>
                 <p className="mt-2 leading-7 text-slate-300">{content}</p>
               </div>
             ))}
+            </div>
           </section>
 
           <section className="border-y border-slate-800 py-10">
@@ -82,14 +103,14 @@ export default async function CaseStudyPage({ params }: Props) {
             </div>
           </section>
 
-          <section className="py-10">
-            <h2 className="text-2xl font-semibold text-white">Validation and evidence</h2>
-            <p className="mt-4 max-w-3xl leading-7 text-slate-300">{project.validation} Evidence type: {project.evidence}.</p>
-            <h2 className="mt-10 text-2xl font-semibold text-white">Engineering lifecycle</h2>
-            <ol className="mt-5 flex flex-wrap gap-2">
+          <section className="py-8">
+            <h2 className="text-2xl font-semibold text-white">Engineering lifecycle</h2>
+            <ol className="mt-4 flex flex-wrap gap-2">
               {project.lifecycle.map((step, index) => <li key={step} className="border border-slate-700 px-3 py-2 text-sm">{index + 1}. {step}</li>)}
             </ol>
           </section>
+
+          {articles.length ? <section className="border-t border-slate-800 py-8"><h2 className="text-xl font-semibold text-white">Published Engineering Write-ups</h2><div className="mt-5 space-y-6">{seriesArticles.map(({ series, entries }) => <div key={series}><h3 className="text-sm font-semibold uppercase tracking-[.14em] text-cyan-200">{series}</h3><div className="mt-3 grid gap-3 sm:grid-cols-2">{entries.map((article) => <article key={article.url} className="border border-slate-800 p-4">{article.part ? <p className="text-xs text-slate-500">Part {article.part}</p> : null}<a href={article.url} target="_blank" rel="noopener noreferrer" className="mt-1 block font-semibold text-white hover:text-cyan-200">{article.title}</a><p className="mt-2 text-sm text-cyan-200">{article.platform}</p></article>)}</div></div>)}{standaloneArticles.length ? <div><h3 className="text-sm font-semibold uppercase tracking-[.14em] text-cyan-200">Standalone Articles</h3><div className="mt-3 grid gap-3 sm:grid-cols-2">{standaloneArticles.map((article) => <article key={article.url} className="border border-slate-800 p-4"><a href={article.url} target="_blank" rel="noopener noreferrer" className="block font-semibold text-white hover:text-cyan-200">{article.title}</a><p className="mt-2 text-sm text-cyan-200">{article.platform}</p></article>)}</div></div> : null}</div></section> : null}
 
           <section className="border-t border-slate-800 py-10">
             <h2 className="text-2xl font-semibold text-white">Current state and limitations</h2>
@@ -106,6 +127,11 @@ export default async function CaseStudyPage({ params }: Props) {
               </a>
             </div>
           </section>
+
+          <nav aria-label="Project navigation" className="mt-10 grid gap-3 border-t border-slate-800 pt-8 sm:grid-cols-2">
+            {previousProject ? <Link href={`/projects/${previousProject.slug}/`} className="border border-slate-700 p-4 hover:border-cyan-300"><span className="text-sm text-cyan-200">← Previous Project</span><span className="mt-1 block font-semibold text-white">{previousProject.title}</span></Link> : <div />}
+            {nextProject ? <Link href={`/projects/${nextProject.slug}/`} className="border border-slate-700 p-4 text-right hover:border-cyan-300"><span className="text-sm text-cyan-200">Next Project →</span><span className="mt-1 block font-semibold text-white">{nextProject.title}</span></Link> : <div />}
+          </nav>
         </article>
       </main>
       <Footer />
