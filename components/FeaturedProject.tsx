@@ -1,176 +1,127 @@
 import Image from "next/image";
 
+const engineeringFlow = [
+  {
+    label: "Problem",
+    detail:
+      "Compare cloud-native web application firewall controls across AWS and Google Cloud from a repeatable baseline.",
+  },
+  {
+    label: "Architecture",
+    detail:
+      "Equivalent cloud environments combine networking, compute, load balancing, identity, logging, and Layer 7 protection.",
+  },
+  {
+    label: "Implementation",
+    detail:
+      "Reusable Terraform modules and environment configuration support a consistent infrastructure lifecycle.",
+  },
+  {
+    label: "Validation",
+    detail:
+      "Terraform checks, cloud console verification, browser testing, and security validation are documented by phase.",
+  },
+  {
+    label: "Evidence",
+    detail:
+      "Architecture, deployment, validation, comparison, and cleanup materials are maintained in the repository.",
+  },
+];
+
 export default function FeaturedProject() {
   return (
-    <section className="bg-slate-950 py-20">
-      <div className="mx-auto max-w-screen-2xl px-8 lg:px-16">
-        <div className="mb-14">
-          <span className="text-sm font-semibold uppercase tracking-[0.25em] text-cyan-400">
-            Featured Project
-          </span>
-
-          <h2 className="mt-4 text-4xl font-bold text-white md:text-5xl">
-            Enterprise Multi-Cloud Web Application Firewall Evaluation Platform
+    <section
+      aria-labelledby="featured-project-heading"
+      className="bg-slate-950 py-16 sm:py-20"
+    >
+      <div className="mx-auto max-w-screen-2xl px-5 sm:px-8 lg:px-16">
+        <div className="max-w-4xl">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-200">
+            Featured engineering project
+          </p>
+          <h2
+            id="featured-project-heading"
+            className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl"
+          >
+            Enterprise Multi-Cloud WAF Evaluation Platform
           </h2>
-
-          <p className="mt-6 max-w-4xl text-lg leading-8 text-slate-300">
-            A production-grade Terraform platform designed to evaluate AWS WAF
-            and Google Cloud Armor using enterprise architecture, modular
-            Infrastructure as Code, validation workflows, documentation and
-            real engineering evidence.
+          <p className="mt-5 text-base leading-7 text-slate-300 sm:text-lg">
+            A Terraform-led comparison of AWS WAF and Google Cloud Armor,
+            structured around equivalent cloud environments and phase-based
+            validation evidence.
           </p>
         </div>
 
-        <div className="grid gap-10 lg:grid-cols-[1.3fr_0.7fr]">
-          {/* Left */}
-          <div className="rounded-3xl border border-slate-800 bg-slate-950 p-10">
-            <div className="flex aspect-video items-center justify-center rounded-2xl border border-dashed border-slate-700 bg-slate-900">
-              <div className="text-center">
-                <Image
-                    src="/images/projects/multicloud-waf-architecture.png"
-                    alt="Enterprise Multi-Cloud WAF Architecture"
-                    width={1200}
-                    height={675}
-                    className="rounded-2xl object-cover"
-                    />
-              </div>
-            </div>
+        <div className="mt-10 grid gap-8 lg:mt-14 lg:grid-cols-[minmax(0,1.2fr)_minmax(19rem,0.8fr)] lg:gap-10">
+          <div className="min-w-0 border border-slate-800 bg-slate-900/40 p-4 sm:p-6">
+            <Image
+              src="/images/projects/multicloud-waf-architecture.png"
+              alt="Architecture diagram for the multi-cloud WAF evaluation platform"
+              width={1200}
+              height={675}
+              className="h-auto w-full border border-slate-800"
+              priority
+            />
 
-            <div className="mt-10 grid gap-5 md:grid-cols-2">
-              <div className="rounded-xl border border-slate-800 p-5">
-                <h3 className="font-semibold text-white">
-                  Problem Statement
-                </h3>
-
-                <p className="mt-3 text-sm leading-7 text-slate-400">
-                  Evaluate enterprise Web Application Firewall capabilities
-                  across AWS and Google Cloud using a reusable Infrastructure
-                  as Code platform.
-                </p>
-              </div>
-
-              <div className="rounded-xl border border-slate-800 p-5">
-                <h3 className="font-semibold text-white">
-                  Architecture
-                </h3>
-
-                <p className="mt-3 text-sm leading-7 text-slate-400">
-                  Modular Terraform architecture with reusable networking,
-                  security, compute and WAF modules.
-                </p>
-              </div>
-
-              <div className="rounded-xl border border-slate-800 p-5">
-                <h3 className="font-semibold text-white">
-                  Validation
-                </h3>
-
-                <p className="mt-3 text-sm leading-7 text-slate-400">
-                  Browser validation, Terraform outputs, console verification
-                  and engineering evidence collection.
-                </p>
-              </div>
-
-              <div className="rounded-xl border border-slate-800 p-5">
-                <h3 className="font-semibold text-white">
-                  Documentation
-                </h3>
-
-                <p className="mt-3 text-sm leading-7 text-slate-400">
-                  Enterprise README, SECURITY.md, architecture diagrams and
-                  implementation documentation.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Right */}
-          <div className="space-y-6">
-            <div className="rounded-3xl border border-slate-800 bg-slate-950 p-8">
-              <h3 className="text-xl font-semibold text-white">
-                Technology Stack
-              </h3>
-
-              <div className="mt-6 flex flex-wrap gap-3">
-                {[
-                  "Terraform",
-                  "AWS",
-                  "Google Cloud",
-                  "AWS WAF",
-                  "Cloud Armor",
-                  "GitHub",
-                  "IAM",
-                  "Networking",
-                  "Nginx",
-                  "Linux",
-                ].map((item) => (
-                  <span
-                    key={item}
-                    className="rounded-lg border border-slate-700 px-4 py-2 text-sm text-slate-300"
-                  >
-                    {item}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            <div className="rounded-3xl border border-slate-800 bg-slate-950 p-8">
-              <h3 className="text-xl font-semibold text-white">
-                Project Highlights
-              </h3>
-
-              <div className="mt-6 space-y-5">
-                <div className="flex justify-between">
-                  <span className="text-slate-400">Cloud Providers</span>
-                  <span className="font-semibold text-white">
-                    AWS + GCP
-                  </span>
-                </div>
-
-                <div className="flex justify-between">
-                  <span className="text-slate-400">Infrastructure</span>
-                  <span className="font-semibold text-white">
-                    Terraform
-                  </span>
-                </div>
-
-                <div className="flex justify-between">
-                  <span className="text-slate-400">Status</span>
-                  <span className="font-semibold text-emerald-400">
-                    Completed
-                  </span>
-                </div>
-
-                <div className="flex justify-between">
-                  <span className="text-slate-400">Documentation</span>
-                  <span className="font-semibold text-white">
-                    Complete
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            <div className="rounded-3xl border border-slate-800 bg-slate-950 p-8">
-              <div className="flex flex-col gap-4">
-                <a
-                  href="https://github.com/nagasesank/multicloud-waf-platform"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="rounded-xl bg-cyan-500 px-6 py-4 text-center font-semibold text-slate-950 transition hover:bg-cyan-400"
+            <ol className="mt-6 divide-y divide-slate-800 border-y border-slate-800">
+              {engineeringFlow.map((step, index) => (
+                <li
+                  key={step.label}
+                  className="grid gap-2 py-4 sm:grid-cols-[2rem_minmax(0,1fr)] sm:gap-4"
                 >
-                  View GitHub Repository
-                </a>
-
-                <button className="rounded-xl border border-slate-700 px-6 py-4 text-white transition hover:border-cyan-400 hover:text-cyan-400">
-                  Read Hashnode Article
-                </button>
-
-                <button className="rounded-xl border border-slate-700 px-6 py-4 text-white transition hover:border-cyan-400 hover:text-cyan-400">
-                  Read Medium Article
-                </button>
-              </div>
-            </div>
+                  <span className="text-sm font-semibold text-cyan-200">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <div>
+                    <h3 className="font-semibold text-white">{step.label}</h3>
+                    <p className="mt-1 text-sm leading-6 text-slate-300">
+                      {step.detail}
+                    </p>
+                  </div>
+                </li>
+              ))}
+            </ol>
           </div>
+
+          <aside className="border border-slate-800 bg-slate-900/40 p-5 sm:p-6">
+            <h3 className="text-lg font-semibold text-white">Project record</h3>
+            <dl className="mt-6 divide-y divide-slate-800 border-y border-slate-800">
+              <div className="py-4">
+                <dt className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
+                  Cloud scope
+                </dt>
+                <dd className="mt-2 text-sm text-slate-200">AWS and Google Cloud</dd>
+              </div>
+              <div className="py-4">
+                <dt className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
+                  Controls
+                </dt>
+                <dd className="mt-2 text-sm leading-6 text-slate-200">
+                  AWS WAF, Google Cloud Armor, IAM, network security, and logging
+                </dd>
+              </div>
+              <div className="py-4">
+                <dt className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
+                  Delivery
+                </dt>
+                <dd className="mt-2 text-sm text-slate-200">Modular Terraform</dd>
+              </div>
+              <div className="py-4">
+                <dt className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
+                  Status
+                </dt>
+                <dd className="mt-2 text-sm font-semibold text-cyan-100">Validated</dd>
+              </div>
+            </dl>
+            <a
+              href="https://github.com/nagasesank/multicloud-waf-platform"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-6 inline-flex w-full items-center justify-center bg-cyan-400 px-5 py-3 text-sm font-semibold text-slate-950 hover:bg-cyan-300"
+            >
+              View GitHub repository
+            </a>
+          </aside>
         </div>
       </div>
     </section>
