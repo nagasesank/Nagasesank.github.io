@@ -16,6 +16,51 @@ export const publications: Publication[] = [
     projectSlug: "aws-zero-trust-org-lab",
   },
   {
+    platform: "Medium",
+    title: "Automated Threat Containment in AWS: What Building a Cloud SOAR Pipeline Taught Me",
+    url: "https://sesanknagamunukutla.medium.com/automated-threat-containment-in-aws-what-building-a-cloud-soar-pipeline-taught-me-06641f5dd434",
+  },
+  {
+    platform: "Medium",
+    title: "Just-In-Time Access for EC2 Is an Architectural Decision, Not an Automation Trick",
+    url: "https://sesanknagamunukutla.medium.com/just-in-time-access-for-ec2-is-an-architectural-decision-not-an-automation-trick-1ab0fd84f2e4",
+  },
+  {
+    platform: "Medium",
+    title: "Why SSH No Longer Fits Zero-Trust EC2 Access in AWS (And What to Use Instead)",
+    url: "https://sesanknagamunukutla.medium.com/why-ssh-no-longer-fits-zero-trust-ec2-access-in-aws-4ee9c4b66fe8",
+  },
+  {
+    platform: "Medium",
+    title: "Eliminating SSH in AWS: Why Identity-Based Access Beats Network Trust",
+    url: "https://sesanknagamunukutla.medium.com/eliminating-ssh-in-aws-why-identity-based-access-beats-network-trust-375c13d8f4f8",
+  },
+  {
+    platform: "Medium",
+    title: "Designing IAM Least Privilege for EC2: From Zero Access to Auditable Enforcement",
+    url: "https://sesanknagamunukutla.medium.com/designing-iam-least-privilege-for-ec2-from-zero-access-to-auditable-enforcement-e1bd12e55b8c",
+  },
+  {
+    platform: "Medium",
+    title: "Securing SSH Access to AWS EC2: From Perimeter Controls to Detection",
+    url: "https://sesanknagamunukutla.medium.com/securing-ssh-access-to-aws-ec2-from-perimeter-controls-to-detection-b313e152aa8f",
+  },
+  {
+    platform: "Medium",
+    title: "Years in Security Engineering — and I’m Still Learning Every Day",
+    url: "https://sesanknagamunukutla.medium.com/years-in-security-engineering-and-im-still-learning-every-day-289f1e74966e",
+  },
+  {
+    platform: "Medium",
+    title: "Baseline Linux Server Hardening & Exposure Validation",
+    url: "https://sesanknagamunukutla.medium.com/baseline-linux-server-hardening-exposure-validation-e89564b85e17",
+  },
+  {
+    platform: "Medium",
+    title: "Filename Leads to Path Traversal",
+    url: "https://sesanknagamunukutla.medium.com/filename-leads-to-path-traversal-185e6193daeb",
+  },
+  {
     platform: "DEV",
     title: "What Building a Zero Trust Serverless Architecture on GCP Taught Me (Including the Mistakes)",
     url: "https://dev.to/sesank_naga_m_01/what-building-a-zero-trust-serverless-architecture-on-gcp-taught-me-including-the-mistakes-224d",
