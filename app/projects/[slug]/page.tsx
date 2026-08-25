@@ -28,6 +28,23 @@ export default async function CaseStudyPage({ params }: Props) {
     notFound();
   }
 
+  const projectIndex = portfolioProjects.findIndex((item) => item.slug === slug);
+  const previousProject = portfolioProjects[projectIndex - 1];
+  const nextProject = portfolioProjects[projectIndex + 1];
+  const articles = project.articles ?? [];
+  const standaloneArticles = articles.filter((article) => !article.series);
+  const seriesArticles = Array.from(
+    articles.reduce((groups, article) => {
+      if (article.series) {
+        groups.set(article.series, [...(groups.get(article.series) ?? []), article]);
+      }
+      return groups;
+    }, new Map<string, typeof articles>()),
+  ).map(([series, entries]) => ({
+    series,
+    entries: [...entries].sort((left, right) => (left.part ?? 0) - (right.part ?? 0)),
+  }));
+
   return (
     <div className="min-h-screen bg-slate-950 text-slate-200">
       <Navbar />
@@ -92,7 +109,7 @@ export default async function CaseStudyPage({ params }: Props) {
             </ol>
           </section>
 
-          {project.articles?.length ? <section className="border-t border-slate-800 py-8"><h2 className="text-xl font-semibold text-white">Project articles</h2><div className="mt-4 flex flex-wrap gap-3">{project.articles.map((article) => <a key={article.url} href={article.url} target="_blank" rel="noopener noreferrer" className="border border-slate-600 px-4 py-2 text-sm font-semibold text-slate-100 hover:border-cyan-300">{article.platform}</a>)}</div></section> : null}
+          {articles.length ? <section className="border-t border-slate-800 py-8"><h2 className="text-xl font-semibold text-white">Published Engineering Write-ups</h2><div className="mt-5 space-y-6">{seriesArticles.map(({ series, entries }) => <div key={series}><h3 className="text-sm font-semibold uppercase tracking-[.14em] text-cyan-200">{series}</h3><div className="mt-3 grid gap-3 sm:grid-cols-2">{entries.map((article) => <article key={article.url} className="border border-slate-800 p-4">{article.part ? <p className="text-xs text-slate-500">Part {article.part}</p> : null}<a href={article.url} target="_blank" rel="noopener noreferrer" className="mt-1 block font-semibold text-white hover:text-cyan-200">{article.title}</a><p className="mt-2 text-sm text-cyan-200">{article.platform}</p></article>)}</div></div>)}{standaloneArticles.length ? <div><h3 className="text-sm font-semibold uppercase tracking-[.14em] text-cyan-200">Standalone Articles</h3><div className="mt-3 grid gap-3 sm:grid-cols-2">{standaloneArticles.map((article) => <article key={article.url} className="border border-slate-800 p-4"><a href={article.url} target="_blank" rel="noopener noreferrer" className="block font-semibold text-white hover:text-cyan-200">{article.title}</a><p className="mt-2 text-sm text-cyan-200">{article.platform}</p></article>)}</div></div> : null}</div></section> : null}
 
           <section className="border-t border-slate-800 py-10">
             <h2 className="text-2xl font-semibold text-white">Current state and limitations</h2>
@@ -109,6 +126,11 @@ export default async function CaseStudyPage({ params }: Props) {
               </a>
             </div>
           </section>
+
+          <nav aria-label="Project navigation" className="mt-10 grid gap-3 border-t border-slate-800 pt-8 sm:grid-cols-2">
+            {previousProject ? <Link href={`/projects/${previousProject.slug}/`} className="border border-slate-700 p-4 hover:border-cyan-300"><span className="text-sm text-cyan-200">← Previous Project</span><span className="mt-1 block font-semibold text-white">{previousProject.title}</span></Link> : <div />}
+            {nextProject ? <Link href={`/projects/${nextProject.slug}/`} className="border border-slate-700 p-4 text-right hover:border-cyan-300"><span className="text-sm text-cyan-200">Next Project →</span><span className="mt-1 block font-semibold text-white">{nextProject.title}</span></Link> : <div />}
+          </nav>
         </article>
       </main>
       <Footer />
