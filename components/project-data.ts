@@ -15,6 +15,7 @@ export type PortfolioProject = {
   validation: string;
   limitations: string;
   lifecycle: string[];
+  articles?: { platform: "Hashnode" | "Medium" | "DEV" | "LinkedIn"; url: string }[];
 };
 
 export const portfolioProjects: PortfolioProject[] = [

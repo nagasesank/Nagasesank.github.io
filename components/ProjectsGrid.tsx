@@ -60,6 +60,8 @@ export default function ProjectsGrid() {
 
               <p className="mt-5 leading-7 text-slate-300">{project.objective}</p>
 
+              {project.articles?.length ? <p className="mt-3 text-xs font-semibold uppercase tracking-[.14em] text-cyan-200">Articles available</p> : null}
+
               <dl className="mt-6 grid gap-5 border-y border-slate-800 py-5 sm:grid-cols-2">
                 <div>
                   <dt className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">

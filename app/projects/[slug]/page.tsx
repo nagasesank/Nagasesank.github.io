@@ -66,13 +66,16 @@ export default async function CaseStudyPage({ params }: Props) {
             </a>
           </header>
 
-          <section className="grid gap-6 py-10 sm:grid-cols-3">
-            {[['Security problem', project.objective], ['Architecture approach', project.architecture], ['Implementation approach', project.implementation]].map(([heading, content]) => (
+          <section aria-labelledby="snapshot-heading" className="py-8">
+            <h2 id="snapshot-heading" className="text-2xl font-semibold text-white">Engineering snapshot</h2>
+            <div className="mt-5 grid gap-4 sm:grid-cols-2">
+            {[['Security problem', project.objective], ['Architecture', project.architecture], ['Implementation', project.implementation], ['Validation and evidence', `${project.validation} Evidence: ${project.evidence}.`]].map(([heading, content]) => (
               <div key={heading}>
                 <h2 className="font-semibold text-white">{heading}</h2>
                 <p className="mt-2 leading-7 text-slate-300">{content}</p>
               </div>
             ))}
+            </div>
           </section>
 
           <section className="border-y border-slate-800 py-10">
@@ -82,14 +85,14 @@ export default async function CaseStudyPage({ params }: Props) {
             </div>
           </section>
 
-          <section className="py-10">
-            <h2 className="text-2xl font-semibold text-white">Validation and evidence</h2>
-            <p className="mt-4 max-w-3xl leading-7 text-slate-300">{project.validation} Evidence type: {project.evidence}.</p>
-            <h2 className="mt-10 text-2xl font-semibold text-white">Engineering lifecycle</h2>
-            <ol className="mt-5 flex flex-wrap gap-2">
+          <section className="py-8">
+            <h2 className="text-2xl font-semibold text-white">Engineering lifecycle</h2>
+            <ol className="mt-4 flex flex-wrap gap-2">
               {project.lifecycle.map((step, index) => <li key={step} className="border border-slate-700 px-3 py-2 text-sm">{index + 1}. {step}</li>)}
             </ol>
           </section>
+
+          {project.articles?.length ? <section className="border-t border-slate-800 py-8"><h2 className="text-xl font-semibold text-white">Project articles</h2><div className="mt-4 flex flex-wrap gap-3">{project.articles.map((article) => <a key={article.url} href={article.url} target="_blank" rel="noopener noreferrer" className="border border-slate-600 px-4 py-2 text-sm font-semibold text-slate-100 hover:border-cyan-300">{article.platform}</a>)}</div></section> : null}
 
           <section className="border-t border-slate-800 py-10">
             <h2 className="text-2xl font-semibold text-white">Current state and limitations</h2>
