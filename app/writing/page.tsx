@@ -1,9 +1,47 @@
 import Link from "next/link";
+import Footer from "@/components/Footer";
+import Navbar from "@/components/Navbar";
 import { publications } from "@/components/publication-data";
 import { portfolioProjects } from "@/components/project-data";
 
 const platforms = ["Hashnode", "Medium", "DEV", "LinkedIn"] as const;
 
 export default function WritingPage() {
-  return <main className="min-h-screen bg-slate-950 px-5 pb-20 pt-28 text-slate-200 sm:px-8"><div className="mx-auto max-w-5xl"><p className="text-xs font-semibold uppercase tracking-[.2em] text-cyan-200">Publication hub</p><h1 className="mt-4 text-4xl font-semibold text-white">Engineering Writing</h1><p className="mt-5 max-w-3xl text-lg leading-8 text-slate-300">Cloud security architecture, hands-on engineering, validation, incident response, IAM, governance, and DevSecOps write-ups.</p><div className="mt-12 space-y-10">{platforms.map((platform) => { const items = publications.filter((publication) => publication.platform === platform); return items.length ? <section key={platform}><h2 className="text-2xl font-semibold text-white">{platform}</h2><div className="mt-4 grid gap-4 sm:grid-cols-2">{items.map((publication) => { const project = portfolioProjects.find((item) => item.slug === publication.projectSlug); return <article key={publication.url} className="border border-slate-800 bg-slate-900/40 p-5"><a href={publication.url} target="_blank" rel="noopener noreferrer" className="font-semibold text-white hover:text-cyan-200">{publication.title}</a>{publication.series ? <p className="mt-2 text-sm text-cyan-200">{publication.series}{publication.part ? ` · Part ${publication.part}` : ""}</p> : null}{project ? <p className="mt-3 text-sm text-slate-400">Related Project <Link href={`/projects/${project.slug}/`} className="font-semibold text-cyan-200">{project.title} →</Link></p> : null}<a href={publication.url} target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex text-sm font-semibold text-cyan-200 hover:text-cyan-100">Read Article →</a></article>; })}</div></section> : null; })}</div></div></main>;
+  return (
+    <div className="min-h-screen bg-slate-950 text-slate-200">
+      <Navbar />
+      <main className="px-5 pb-20 pt-28 sm:px-8">
+        <div className="mx-auto max-w-5xl">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-200">Publication hub</p>
+          <h1 className="mt-4 text-4xl font-semibold text-white">Engineering Writing</h1>
+          <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-300">Cloud security architecture, hands-on engineering, validation, incident response, IAM, governance, and DevSecOps write-ups.</p>
+          <div className="mt-12 space-y-10">
+            {platforms.map((platform) => {
+              const items = publications.filter((publication) => publication.platform === platform);
+              if (!items.length) return null;
+              return (
+                <section key={platform} aria-labelledby={`${platform}-heading`}>
+                  <h2 id={`${platform}-heading`} className="text-2xl font-semibold text-white">{platform}</h2>
+                  <div className="mt-4 grid gap-4 sm:grid-cols-2">
+                    {items.map((publication) => {
+                      const project = portfolioProjects.find((item) => item.slug === publication.projectSlug);
+                      return (
+                        <article key={publication.url} className="border border-slate-800 bg-slate-900/40 p-5">
+                          <a href={publication.url} target="_blank" rel="noopener noreferrer" className="font-semibold text-white hover:text-cyan-200">{publication.title}</a>
+                          {publication.series ? <p className="mt-2 text-sm text-cyan-200">{publication.series}{publication.part ? ` · Part ${publication.part}` : ""}</p> : null}
+                          {project ? <p className="mt-3 text-sm text-slate-400">Related Project <Link href={`/projects/${project.slug}/`} className="font-semibold text-cyan-200">{project.title} →</Link></p> : null}
+                          <a href={publication.url} target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex text-sm font-semibold text-cyan-200 hover:text-cyan-100">Read Article →</a>
+                        </article>
+                      );
+                    })}
+                  </div>
+                </section>
+              );
+            })}
+          </div>
+        </div>
+      </main>
+      <Footer />
+    </div>
+  );
 }
