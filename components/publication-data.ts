@@ -141,6 +141,47 @@ export const publications: Publication[] = [
     publishedAt: "2026-01-10",
   },
   {
+    platform: "LinkedIn",
+    title: "Building an AI-Assisted AWS Security Incident Triage Pipeline",
+    url: "https://www.linkedin.com/pulse/building-ai-assisted-aws-security-incident-triage-pipeline-m-haiuc/",
+  },
+  {
+    platform: "LinkedIn",
+    title: "Building a Zero Trust Serverless Security Architecture on GCP",
+    url: "https://www.linkedin.com/pulse/building-zero-trust-serverless-security-architecture-gcp-m-dskrc/",
+  },
+  {
+    platform: "LinkedIn",
+    title:
+      "Most People Study Cloud Wrong — Lessons from Google Cloud Architect Training (and Why AWS vs GCP Thinking Is Broken)",
+    url: "https://www.linkedin.com/pulse/most-people-study-cloud-wrong-lessons-from-google-architect-m-zinbc/",
+  },
+  {
+    platform: "LinkedIn",
+    title: "From ISO 27001 Theory to Real-Time Compliance: A Hands-on AWS Implementation",
+    url: "https://www.linkedin.com/pulse/from-iso-27001-theory-real-time-compliance-hands-on-aws-m-o4wcc/",
+  },
+  {
+    platform: "LinkedIn",
+    title: "🚨 Common Mistakes in Cloud SOAR Implementations (That Most Engineers Overlook)",
+    url: "https://www.linkedin.com/pulse/common-mistakes-cloud-soar-implementations-most-engineers-m-ldqvc/",
+  },
+  {
+    platform: "LinkedIn",
+    title: "Akamai WAF Isn’t About Better Security — It’s About Not Paying for Attacks",
+    url: "https://www.linkedin.com/pulse/akamai-waf-isnt-better-security-its-paying-attacks-m-i8dpc/",
+  },
+  {
+    platform: "LinkedIn",
+    title: "I Stopped Using SSH on EC2 — Here’s Why",
+    url: "https://www.linkedin.com/pulse/i-stopped-using-ssh-ec2-heres-why-sree-surya-naga-sesank-m-661qc/",
+  },
+  {
+    platform: "LinkedIn",
+    title: "Cloud Security Isn’t About Firewalls Anymore",
+    url: "https://www.linkedin.com/pulse/cloud-security-isnt-firewalls-anymore-sree-surya-naga-sesank-m-lflac/",
+  },
+  {
     platform: "DEV",
     title: "What Building a Zero Trust Serverless Architecture on GCP Taught Me (Including the Mistakes)",
     url: "https://dev.to/sesank_naga_m_01/what-building-a-zero-trust-serverless-architecture-on-gcp-taught-me-including-the-mistakes-224d",
