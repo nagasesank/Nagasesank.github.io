@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import { portfolioProjects } from "@/components/project-data";
+import { publications } from "@/components/publication-data";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -31,7 +32,7 @@ export default async function CaseStudyPage({ params }: Props) {
   const projectIndex = portfolioProjects.findIndex((item) => item.slug === slug);
   const previousProject = portfolioProjects[projectIndex - 1];
   const nextProject = portfolioProjects[projectIndex + 1];
-  const articles = project.articles ?? [];
+  const articles = publications.filter((publication) => publication.projectSlug === project.slug);
   const standaloneArticles = articles.filter((article) => !article.series);
   const seriesArticles = Array.from(
     articles.reduce((groups, article) => {

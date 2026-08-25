@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { portfolioProjects } from "@/components/project-data";
+import { publications } from "@/components/publication-data";
 
 const featuredProject = portfolioProjects.find(
   (project) => project.slug === "hipaa-hitrust-healthcare-security",
@@ -27,7 +28,7 @@ export default function FeaturedProject() {
             </dl>
             <Link href={`/projects/${featuredProject.slug}/`} className="mt-6 inline-flex w-full justify-center bg-cyan-400 px-5 py-3 font-semibold text-slate-950 hover:bg-cyan-300">View Case Study</Link>
             <a href={featuredProject.repository} target="_blank" rel="noopener noreferrer" className="mt-3 inline-flex w-full justify-center border border-slate-600 px-5 py-3 font-semibold text-slate-100 hover:border-cyan-300">GitHub Repository</a>
-            {featuredProject.articles?.length ? <div className="mt-5 border-t border-slate-800 pt-4"><p className="text-xs font-semibold uppercase tracking-[.14em] text-cyan-200">Published engineering write-ups</p>{featuredProject.articles.map((article) => <a key={article.url} href={article.url} target="_blank" rel="noopener noreferrer" className="mt-2 block text-sm font-semibold text-slate-100 hover:text-cyan-200">{article.title} <span className="text-cyan-200">({article.platform})</span></a>)}</div> : null}
+            {publications.filter((article) => article.projectSlug === featuredProject.slug).length ? <div className="mt-5 border-t border-slate-800 pt-4"><p className="text-xs font-semibold uppercase tracking-[.14em] text-cyan-200">Published engineering write-ups</p>{publications.filter((article) => article.projectSlug === featuredProject.slug).map((article) => <a key={article.url} href={article.url} target="_blank" rel="noopener noreferrer" className="mt-2 block text-sm font-semibold text-slate-100 hover:text-cyan-200">{article.title} <span className="text-cyan-200">({article.platform})</span></a>)}</div> : null}
           </aside>
         </div>
       </div>
