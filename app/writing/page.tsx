@@ -1,47 +1,15 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import { publications } from "@/components/publication-data";
 import { portfolioProjects } from "@/components/project-data";
 
+export const metadata: Metadata = { title: "Engineering Writing", description: "Cloud security architecture, hands-on engineering, validation, incident response, IAM, governance, and DevSecOps writing.", alternates: { canonical: "/writing/" }, openGraph: { title: "Engineering Writing", description: "Cloud security architecture, hands-on engineering, validation, incident response, IAM, governance, and DevSecOps writing.", url: "/writing/" }, twitter: { title: "Engineering Writing", description: "Cloud security architecture, hands-on engineering, validation, incident response, IAM, governance, and DevSecOps writing." } };
 const platforms = ["Hashnode", "Medium", "DEV", "LinkedIn"] as const;
+const formatDate = (date?: string) => date ? new Intl.DateTimeFormat("en", { month: "short", year: "numeric", timeZone: "UTC" }).format(new Date(`${date}T00:00:00Z`)) : null;
 
 export default function WritingPage() {
-  return (
-    <div className="min-h-screen bg-slate-950 text-slate-200">
-      <Navbar />
-      <main className="px-5 pb-20 pt-28 sm:px-8">
-        <div className="mx-auto max-w-5xl">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-200">Publication hub</p>
-          <h1 className="mt-4 text-4xl font-semibold text-white">Engineering Writing</h1>
-          <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-300">Cloud security architecture, hands-on engineering, validation, incident response, IAM, governance, and DevSecOps write-ups.</p>
-          <div className="mt-12 space-y-10">
-            {platforms.map((platform) => {
-              const items = publications.filter((publication) => publication.platform === platform);
-              if (!items.length) return null;
-              return (
-                <section key={platform} aria-labelledby={`${platform}-heading`}>
-                  <h2 id={`${platform}-heading`} className="text-2xl font-semibold text-white">{platform}</h2>
-                  <div className="mt-4 grid gap-4 sm:grid-cols-2">
-                    {items.map((publication) => {
-                      const project = portfolioProjects.find((item) => item.slug === publication.projectSlug);
-                      return (
-                        <article key={publication.url} className="border border-slate-800 bg-slate-900/40 p-5">
-                          <a href={publication.url} target="_blank" rel="noopener noreferrer" className="font-semibold text-white hover:text-cyan-200">{publication.title}</a>
-                          {publication.series ? <p className="mt-2 text-sm text-cyan-200">{publication.series}{publication.part ? ` · Part ${publication.part}` : ""}</p> : null}
-                          {project ? <p className="mt-3 text-sm text-slate-400">Related Project <Link href={`/projects/${project.slug}/`} className="font-semibold text-cyan-200">{project.title} →</Link></p> : null}
-                          <a href={publication.url} target="_blank" rel="noopener noreferrer" className="mt-4 inline-flex text-sm font-semibold text-cyan-200 hover:text-cyan-100">Read Article →</a>
-                        </article>
-                      );
-                    })}
-                  </div>
-                </section>
-              );
-            })}
-          </div>
-        </div>
-      </main>
-      <Footer />
-    </div>
-  );
+  const counts = platforms.map((platform) => [platform, publications.filter((item) => item.platform === platform).length] as const);
+  return <div className="min-h-screen bg-[#07111d] text-slate-200"><Navbar /><main className="px-5 pb-20 pt-28 sm:px-8"><div className="mx-auto max-w-screen-2xl lg:px-8"><header className="border-b border-slate-700 pb-9"><p className="text-xs font-semibold uppercase tracking-[.2em] text-cyan-200">Publication records</p><h1 className="mt-4 text-4xl font-semibold tracking-tight text-white sm:text-5xl">Engineering Writing</h1><p className="mt-5 max-w-3xl text-lg leading-8 text-slate-300">Cloud security architecture, hands-on engineering, validation, incident response, IAM, governance, and DevSecOps write-ups.</p></header><ul aria-label="Publication summary" className="mt-8 grid border-l border-t border-slate-700 sm:grid-cols-2 lg:grid-cols-5"><li className="border-b border-r border-slate-700 bg-[#0b1725] p-4"><p className="font-mono text-xs uppercase tracking-[.14em] text-slate-400">Total</p><p className="mt-2 text-2xl font-semibold text-cyan-100">{publications.length}</p></li>{counts.map(([platform, count]) => <li key={platform} className="border-b border-r border-slate-700 bg-[#0b1725] p-4"><p className="font-mono text-xs uppercase tracking-[.14em] text-slate-400">{platform}</p><p className="mt-2 text-2xl font-semibold text-cyan-100">{count}</p></li>)}</ul><div className="mt-12 space-y-12">{platforms.map((platform) => <section key={platform} aria-labelledby={`${platform}-heading`}><div className="border-b border-slate-700 pb-4"><p className="font-mono text-xs uppercase tracking-[.14em] text-cyan-200">Platform</p><h2 id={`${platform}-heading`} className="mt-2 text-2xl font-semibold text-white">{platform}</h2></div><div className="mt-5 grid gap-4 lg:grid-cols-2">{publications.filter((item) => item.platform === platform).map((publication) => { const project = portfolioProjects.find((item) => item.slug === publication.projectSlug); return <article key={publication.url} className="border border-slate-700 bg-[#0b1725] p-5"><div className="flex flex-wrap gap-x-3 gap-y-1 font-mono text-xs text-slate-400">{publication.publishedAt ? <span>{formatDate(publication.publishedAt)}</span> : null}{publication.series ? <span>{publication.series}{publication.part ? ` / Part ${publication.part}` : ""}</span> : null}</div><a href={publication.url} target="_blank" rel="noopener noreferrer" className="mt-3 block text-lg font-semibold leading-7 text-white underline decoration-slate-600 underline-offset-4 hover:text-cyan-100 hover:decoration-cyan-300">{publication.title}</a>{project ? <Link href={`/projects/${project.slug}/`} className="mt-4 inline-block text-sm font-semibold text-cyan-200 underline decoration-cyan-300/50 underline-offset-4 hover:text-cyan-100">Related project: {project.title}</Link> : null}</article>; })}</div></section>)}</div></div></main><Footer /></div>;
 }

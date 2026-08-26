@@ -34,7 +34,7 @@ export default function TrainingGallery() {
   return (
     <section className="mt-28 pb-24">
       <div className="mb-12">
-        <div className="inline-flex items-center gap-2 rounded-full border border-cyan-500/20 bg-cyan-500/10 px-4 py-2 text-sm font-medium text-cyan-300">
+        <div className="inline-flex items-center gap-2 border-l-2 border-cyan-300 pl-3 text-sm font-medium text-cyan-200">
           <GraduationCap className="h-4 w-4" />
           Professional Development
         </div>
@@ -50,28 +50,27 @@ export default function TrainingGallery() {
         </p>
       </div>
 
-      <div className="grid gap-8 md:grid-cols-2">
+      <div className="grid gap-4 md:grid-cols-2">
         {trainingPrograms.map((training) => (
           <a
             key={training.title}
             href={training.image}
             target="_blank"
             rel="noopener noreferrer"
-            className="group overflow-hidden rounded-3xl border border-white/10 bg-white/5 transition-all duration-500 hover:-translate-y-2 hover:border-cyan-400/40 hover:bg-white/10"
+            className="overflow-hidden border border-slate-700 bg-[#0b1725]"
           >
             <div className="relative aspect-[16/10] overflow-hidden bg-slate-900">
               <Image
                 src={training.image}
                 alt={training.title}
                 fill
-                className="object-contain p-4 transition duration-500 group-hover:scale-105"
+                className="object-contain p-4"
                 sizes="(max-width:768px) 100vw, 50vw"
               />
 
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 transition duration-500 group-hover:opacity-100" />
             </div>
 
-            <div className="flex items-center justify-between border-t border-white/10 p-6">
+            <div className="flex items-center justify-between border-t border-slate-700 p-5">
               <div>
                 <p className="text-xs uppercase tracking-[0.25em] text-cyan-300">
                   {training.provider}
@@ -86,7 +85,7 @@ export default function TrainingGallery() {
                 </p>
               </div>
 
-              <ExternalLink className="h-5 w-5 text-cyan-400 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1" />
+              <ExternalLink className="h-5 w-5 text-cyan-300" />
             </div>
           </a>
         ))}

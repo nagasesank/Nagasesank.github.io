@@ -13,9 +13,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Surya | Cloud Security Engineering",
-  description:
-    "Evidence-based cloud security engineering portfolio covering AWS, multi-cloud security, Terraform, and DevSecOps automation.",
+  metadataBase: new URL("https://nagasesank.github.io"),
+  title: { default: "Surya Naga Sesank M | Cloud Security Engineering", template: "%s | Surya Naga Sesank M" },
+  description: "Cloud security engineering across AWS and Google Cloud, with Terraform, IAM and Zero Trust, DevSecOps, incident response, and security architecture.",
+  openGraph: { type: "website", siteName: "Surya Naga Sesank M" },
+  twitter: { card: "summary" },
 };
 
 export default function RootLayout({

@@ -17,9 +17,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const project = portfolioProjects.find((item) => item.slug === slug);
 
-  return project
-    ? { title: `${project.title} | Surya`, description: project.summary }
-    : {};
+  return project ? { title: project.title, description: project.summary, alternates: { canonical: `/projects/${project.slug}/` }, openGraph: { type: "website", title: project.title, description: project.summary, url: `/projects/${project.slug}/` }, twitter: { card: "summary", title: project.title, description: project.summary } } : {};
 }
 
 export default async function CaseStudyPage({ params }: Props) {
