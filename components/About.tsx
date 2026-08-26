@@ -1,86 +1,38 @@
-const engineeringFocus = [
-  "Cloud Security Architecture",
-  "AWS and Google Cloud",
-  "Terraform and Infrastructure as Code",
-  "IAM and Zero Trust",
-  "Detection and Incident Response",
-  "DevSecOps and Security Automation",
-];
-
-const experienceAreas = [
-  {
-    label: "Experience",
-    value: "10+ years in cybersecurity",
-  },
-  {
-    label: "Cloud",
-    value: "AWS and Google Cloud",
-  },
-  {
-    label: "Engineering",
-    value: "Terraform, DevSecOps, and automation",
-  },
-  {
-    label: "Security domains",
-    value: "IAM, Zero Trust, detection, and governance",
-  },
+const engineeringMethod = [
+  ["01", "Model", "Define the control objective, cloud boundary, and assumptions before implementation."],
+  ["02", "Implement", "Use infrastructure-as-code and versioned artifacts where the project supports them."],
+  ["03", "Validate", "Test controls, record results, and distinguish confirmed evidence from planned work."],
+  ["04", "Explain", "Document architecture, limitations, and remediation paths so the work can be reviewed."],
 ];
 
 export default function About() {
   return (
-    <section id="about" className="bg-slate-950 py-20 sm:py-24">
+    <section id="about" className="border-b border-slate-800 bg-[#091521] py-16 sm:py-20">
       <div className="mx-auto max-w-screen-2xl px-5 sm:px-8 lg:px-16">
-        <div className="grid gap-12 lg:grid-cols-[1.2fr_0.8fr] lg:gap-14">
+        <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-200">
-              About
-            </p>
-            <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-              Cloud Security Engineering Across Architecture, Automation, and
-              Assurance
-            </h2>
-            <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300">
-              With 10+ years in cybersecurity, I focus on cloud security
-              engineering and architecture across AWS and Google Cloud. My work
-              brings together Terraform, IAM and Zero Trust, detection and
-              incident response, DevSecOps, and security automation.
-            </p>
-            <p className="mt-5 max-w-3xl leading-7 text-slate-300">
-              The portfolio emphasizes reviewable engineering evidence:
-              infrastructure definitions, validation steps, investigations,
-              remediation, and documented outcomes. Framework familiarity
-              informs work across NIST, ISO 27001, HIPAA/HITRUST-aligned
-              engineering, PCI DSS, and SOC 2 without representing compliance
-              certification or attestation.
-            </p>
-
-            <ul className="mt-9 grid gap-3 sm:grid-cols-2">
-              {engineeringFocus.map((item) => (
-                <li
-                  key={item}
-                  className="border border-slate-800 bg-slate-900/40 px-4 py-3 text-sm text-slate-200"
-                >
-                  {item}
-                </li>
-              ))}
-            </ul>
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-200">Engineering evidence</p>
+            <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl">Cloud security work that is designed to be reviewed.</h2>
+            <p className="mt-5 max-w-xl text-lg leading-8 text-slate-300">The portfolio focuses on cloud security architecture, infrastructure automation, identity, governance, detection, and incident-response engineering. The supporting records emphasize practical controls, validation, and clear limits.</p>
+            <p className="mt-5 max-w-xl leading-7 text-slate-400">Experience and learning areas include AWS and Google Cloud, Terraform, IAM, Zero Trust, DevSecOps automation, and cloud security investigation. Framework references describe engineering alignment only, not a compliance certification or attestation.</p>
           </div>
 
-          <aside className="border border-slate-800 bg-slate-900/40 p-5 sm:p-7">
-            <h3 className="text-xl font-semibold text-white">Engineering profile</h3>
-            <dl className="mt-6 divide-y divide-slate-800 border-y border-slate-800">
-              {experienceAreas.map((area) => (
-                <div key={area.label} className="py-4">
-                  <dt className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">
-                    {area.label}
-                  </dt>
-                  <dd className="mt-2 text-sm leading-6 text-slate-200">
-                    {area.value}
-                  </dd>
-                </div>
+          <div className="border border-slate-700 bg-[#0b1725]">
+            <div className="border-b border-slate-700 p-5 sm:p-6">
+              <p className="font-mono text-xs uppercase tracking-[0.16em] text-slate-400">Evidence-oriented method</p>
+            </div>
+            <ol className="divide-y divide-slate-700">
+              {engineeringMethod.map(([number, title, description]) => (
+                <li key={number} className="grid gap-3 p-5 sm:grid-cols-[3.5rem_1fr] sm:p-6">
+                  <p className="font-mono text-sm text-cyan-200">{number}</p>
+                  <div>
+                    <h3 className="text-lg font-semibold text-white">{title}</h3>
+                    <p className="mt-2 leading-7 text-slate-300">{description}</p>
+                  </div>
+                </li>
               ))}
-            </dl>
-          </aside>
+            </ol>
+          </div>
         </div>
       </div>
     </section>
