@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 const credentials = [
@@ -56,17 +57,18 @@ export default function Hero() {
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-cyan-200">Professional identity</p>
               <span className="border border-cyan-300/30 px-2 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-cyan-100">Profile</span>
             </div>
-            <h2 id="identity-panel-heading" className="mt-5 text-2xl font-semibold text-white">Security Architecture Console</h2>
-            <dl className="mt-6 divide-y divide-slate-800 border-y border-slate-800">
-              {["Role focus|Cloud security architecture and engineering", "Practice|DevSecOps, automation, and reviewable delivery", "Evidence|Architecture, validation, and engineering records"].map((record) => {
-                const [term, detail] = record.split("|");
-                return <div key={term} className="grid gap-1 py-3 sm:grid-cols-[6.5rem_minmax(0,1fr)] sm:gap-4"><dt className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">{term}</dt><dd className="text-sm leading-6 text-slate-200">{detail}</dd></div>;
-              })}
-            </dl>
-            <div className="mt-6 border-l-2 border-slate-500 pl-4">
-              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-400">Profile image asset required</p>
-              <p className="mt-2 text-sm leading-6 text-slate-300">Add a verified professional headshot at <code className="text-cyan-100">public/images/surya-profile.jpg</code>. The image panel will be enabled once the asset is supplied.</p>
+            <div className="relative mt-5 aspect-[4/5] overflow-hidden border border-slate-700 bg-slate-900">
+              <Image
+                src="/images/surya-profile.jpg"
+                alt="Surya Naga Sesank M"
+                fill
+                priority
+                sizes="(max-width: 1023px) calc(100vw - 4rem), 32vw"
+                className="object-cover object-center"
+              />
             </div>
+            <h2 id="identity-panel-heading" className="mt-5 text-xl font-semibold text-white">Security Architecture Console</h2>
+            <p className="mt-2 text-sm leading-6 text-slate-300">Cloud security architecture, DevSecOps, and evidence-oriented engineering.</p>
           </aside>
         </div>
 
