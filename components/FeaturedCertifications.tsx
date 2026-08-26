@@ -25,7 +25,7 @@ const featuredCertifications = [
   {
     title: "AWS Well-Architected Proficient",
     image: "/certifications/badges/aws-well-architected-proficient.png",
-    type: "AWS Specialty",
+    type: "AWS Well-Architected",
   },
 ];
 
