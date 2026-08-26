@@ -43,8 +43,8 @@ export default function FeaturedCertifications() {
         </h2>
 
         <p className="mt-4 max-w-3xl text-lg text-slate-400">
-          Industry-recognized certifications highlighting expertise in Cloud
-          Security, Enterprise Architecture and Cybersecurity.
+          Selected industry certifications relevant to cloud security,
+          architecture, governance, and cybersecurity.
         </p>
       </div>
 

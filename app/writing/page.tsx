@@ -5,7 +5,7 @@ import Navbar from "@/components/Navbar";
 import { publications } from "@/components/publication-data";
 import { portfolioProjects } from "@/components/project-data";
 
-export const metadata: Metadata = { title: "Engineering Writing", description: "Cloud security architecture, hands-on engineering, validation, incident response, IAM, governance, and DevSecOps writing.", alternates: { canonical: "/writing/" } };
+export const metadata: Metadata = { title: "Engineering Writing", description: "Cloud security architecture, hands-on engineering, validation, incident response, IAM, governance, and DevSecOps writing.", alternates: { canonical: "/writing/" }, openGraph: { title: "Engineering Writing", description: "Cloud security architecture, hands-on engineering, validation, incident response, IAM, governance, and DevSecOps writing.", url: "/writing/" }, twitter: { title: "Engineering Writing", description: "Cloud security architecture, hands-on engineering, validation, incident response, IAM, governance, and DevSecOps writing." } };
 const platforms = ["Hashnode", "Medium", "DEV", "LinkedIn"] as const;
 const formatDate = (date?: string) => date ? new Intl.DateTimeFormat("en", { month: "short", year: "numeric", timeZone: "UTC" }).format(new Date(`${date}T00:00:00Z`)) : null;
 

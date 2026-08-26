@@ -44,9 +44,9 @@ export default function CertificateGallery() {
         </h2>
 
         <p className="mt-4 max-w-3xl text-lg text-slate-400">
-          Professional certifications and completion certificates validating
-          practical expertise across cybersecurity, cloud security,
-          infrastructure, and enterprise architecture.
+          Professional certifications and completion records covering
+          cybersecurity, cloud security, infrastructure, and related
+          engineering training.
         </p>
       </div>
 
