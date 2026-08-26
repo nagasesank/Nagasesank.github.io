@@ -5,6 +5,15 @@ const engineeringMethod = [
   ["04", "Explain", "Document architecture, limitations, and remediation paths so the work can be reviewed."],
 ];
 
+const seniorCapabilities = [
+  "AWS and Google Cloud",
+  "Terraform / Infrastructure as Code",
+  "IAM / Zero Trust",
+  "Detection / Incident Response",
+  "DevSecOps / Security Automation",
+  "Governance / Security Assurance",
+];
+
 export default function About() {
   return (
     <section id="about" className="border-b border-slate-800 bg-[#091521] py-16 sm:py-20">
@@ -12,9 +21,19 @@ export default function About() {
         <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-200">Engineering evidence</p>
-            <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl">Cloud security work that is designed to be reviewed.</h2>
-            <p className="mt-5 max-w-xl text-lg leading-8 text-slate-300">The portfolio focuses on cloud security architecture, infrastructure automation, identity, governance, detection, and incident-response engineering. The supporting records emphasize practical controls, validation, and clear limits.</p>
-            <p className="mt-5 max-w-xl leading-7 text-slate-400">Experience and learning areas include AWS and Google Cloud, Terraform, IAM, Zero Trust, DevSecOps automation, and cloud security investigation. Framework references describe engineering alignment only, not a compliance certification or attestation.</p>
+            <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl">Senior cloud security engineering, designed to be reviewed.</h2>
+            <p className="mt-5 max-w-xl text-lg leading-8 text-slate-300">With 10+ years in cybersecurity, the work centers on cloud security architecture, infrastructure automation, identity, governance, detection, and incident-response engineering. Supporting records emphasize practical controls, validation, and clear limits.</p>
+            <div className="mt-6 border-y border-slate-700 py-5">
+              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-400">Engineering scope</p>
+              <ul className="mt-4 grid gap-2 sm:grid-cols-2">
+                {seniorCapabilities.map((capability) => (
+                  <li key={capability} className="border-l border-cyan-300/70 pl-3 text-sm leading-6 text-slate-200">
+                    {capability}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <p className="mt-5 max-w-xl leading-7 text-slate-400">Framework familiarity includes NIST, ISO 27001, HIPAA/HITRUST-aligned engineering, PCI DSS, and SOC 2. This familiarity describes engineering context only and does not imply certification, compliance, or attestation.</p>
           </div>
 
           <div className="border border-slate-700 bg-[#0b1725]">

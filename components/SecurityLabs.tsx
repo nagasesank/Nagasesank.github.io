@@ -18,13 +18,21 @@ function formatPublishedDate(publishedAt?: string) {
 }
 
 export default function SecurityLabs() {
+  if (securityLabs.length === 0) {
+    return null;
+  }
+
   return (
-    <section id="security-labs" className="border-b border-slate-800 bg-[#07111d] py-16 sm:py-20">
+    <section
+      id="security-labs"
+      aria-labelledby="security-labs-heading"
+      className="border-b border-slate-800 bg-[#07111d] py-16 sm:py-20"
+    >
       <div className="mx-auto max-w-screen-2xl px-5 sm:px-8 lg:px-16">
         <div className="grid gap-6 border-b border-slate-700 pb-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-200">Security Labs &amp; Project Series</p>
-            <h2 className="mt-3 text-3xl font-semibold tracking-tight text-white sm:text-4xl">Working notes from hands-on security labs</h2>
+            <h2 id="security-labs-heading" className="mt-3 text-3xl font-semibold tracking-tight text-white sm:text-4xl">Working notes from hands-on security labs</h2>
           </div>
           <p className="max-w-2xl text-lg leading-8 text-slate-300">A lower-hierarchy series of public engineering write-ups. These records complement, rather than replace, the four flagship case studies above.</p>
         </div>
