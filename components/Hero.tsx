@@ -21,7 +21,7 @@ export default function Hero() {
     <section className="relative overflow-hidden border-b border-slate-800 pt-28">
       <div className="absolute inset-0 -z-10 opacity-40 [background-image:linear-gradient(rgba(103,232,249,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(103,232,249,0.05)_1px,transparent_1px)] [background-size:3rem_3rem]" />
       <div className="mx-auto max-w-screen-2xl px-5 pb-14 sm:px-8 lg:px-16 lg:pb-20">
-        <div className="grid items-start gap-10 lg:grid-cols-[minmax(0,1.25fr)_minmax(19rem,0.75fr)] lg:gap-16">
+        <div className="grid items-start gap-10 lg:grid-cols-[minmax(0,1fr)_19rem] lg:gap-16">
           <div className="pt-4">
             <p className="inline-flex border-l-2 border-cyan-300 pl-3 text-xs font-semibold uppercase tracking-[0.2em] text-cyan-100">
               Cloud Security Engineering
@@ -52,12 +52,12 @@ export default function Hero() {
             </div>
           </div>
 
-          <aside aria-labelledby="identity-panel-heading" className="border border-slate-700 bg-[#0b1725]/90 p-5 shadow-[0_1.5rem_4rem_rgba(0,0,0,0.2)] sm:p-7">
+          <aside aria-labelledby="identity-panel-heading" className="w-full max-w-[19rem] justify-self-center border border-slate-700 bg-[#0b1725]/90 p-4 shadow-[0_1.5rem_4rem_rgba(0,0,0,0.2)] sm:p-4 lg:justify-self-end">
             <div className="flex items-center justify-between gap-4 border-b border-slate-700 pb-4">
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-cyan-200">Professional identity</p>
               <span className="border border-cyan-300/30 px-2 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-cyan-100">Profile</span>
             </div>
-            <div className="relative mt-5 aspect-[4/5] overflow-hidden border border-slate-700 bg-slate-900">
+            <div className="relative mx-auto mt-5 aspect-[4/5] w-full max-w-[15rem] overflow-hidden border border-slate-700 bg-slate-900 sm:max-w-[17rem]">
               <Image
                 src="/images/surya-profile.jpg"
                 alt="Surya Naga Sesank M"
