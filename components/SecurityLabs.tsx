@@ -1,22 +1,24 @@
 import Link from "next/link";
-import { portfolioProjects } from "@/components/project-data";
-import { publications } from "@/components/publication-data";
+
+import { portfolioProjects } from "./project-data";
+import { publications } from "./publication-data";
 
 const securityLabs = publications
   .filter((publication) => publication.series === "Friday Security Projects")
-  .sort((left, right) => (left.part ?? 0) - (right.part ?? 0));
+  .sort((first, second) => (first.part ?? 0) - (second.part ?? 0));
 
-function formatPublishedDate(date: string) {
-  return new Intl.DateTimeFormat("en-US", {
-    day: "numeric",
-    month: "short",
-    timeZone: "UTC",
-    year: "numeric",
-  }).format(new Date(`${date}T00:00:00Z`));
+function formatPublishedDate(publishedAt?: string) {
+  if (!publishedAt) {
+    return null;
+  }
+
+  return new Intl.DateTimeFormat("en", { month: "short", year: "numeric", timeZone: "UTC" }).format(
+    new Date(`${publishedAt}T00:00:00Z`),
+  );
 }
 
 export default function SecurityLabs() {
-  if (!securityLabs.length) {
+  if (securityLabs.length === 0) {
     return null;
   }
 
@@ -24,81 +26,40 @@ export default function SecurityLabs() {
     <section
       id="security-labs"
       aria-labelledby="security-labs-heading"
-      className="border-y border-slate-800 bg-slate-900/20 py-16 sm:py-20"
+      className="border-b border-slate-800 bg-[#07111d] py-16 sm:py-20"
     >
       <div className="mx-auto max-w-screen-2xl px-5 sm:px-8 lg:px-16">
-        <div className="max-w-3xl">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">
-            Published project series
-          </p>
-          <h2
-            id="security-labs-heading"
-            className="mt-4 text-2xl font-semibold tracking-tight text-white sm:text-3xl"
-          >
-            Security Labs &amp; Project Series
-          </h2>
-          <p className="mt-4 leading-7 text-slate-300">
-            A chronological record of the Friday Security Projects, with each
-            lab documented as an engineering write-up.
-          </p>
+        <div className="grid gap-6 border-b border-slate-700 pb-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-200">Security Labs &amp; Project Series</p>
+            <h2 id="security-labs-heading" className="mt-3 text-3xl font-semibold tracking-tight text-white sm:text-4xl">Working notes from hands-on security labs</h2>
+          </div>
+          <p className="max-w-2xl text-lg leading-8 text-slate-300">A lower-hierarchy series of public engineering write-ups. These records complement, rather than replace, the four flagship case studies above.</p>
         </div>
 
-        <ol className="mt-10 grid gap-3 lg:grid-cols-2">
+        <ol className="mt-8 divide-y divide-slate-700 border-y border-slate-700">
           {securityLabs.map((publication) => {
-            const project = portfolioProjects.find(
-              (item) => item.slug === publication.projectSlug,
-            );
+            const relatedProject = publication.projectSlug
+              ? portfolioProjects.find((project) => project.slug === publication.projectSlug)
+              : undefined;
 
             return (
-              <li
-                key={publication.url}
-                className="border border-slate-800 bg-slate-950/50 p-5"
-              >
-                <div className="flex items-start justify-between gap-4">
-                  <p className="text-xs font-semibold uppercase tracking-[0.16em] text-cyan-200">
-                    Project {publication.part ?? "lab"}
-                  </p>
-                  <span className="shrink-0 text-xs text-slate-500">
-                    {publication.platform}
-                  </span>
+              <li key={publication.url} className="grid gap-4 py-5 sm:grid-cols-[8rem_1fr_auto] sm:items-center">
+                <div>
+                  <p className="font-mono text-sm text-cyan-200">LAB {String(publication.part).padStart(2, "0")}</p>
+                  <p className="mt-1 text-xs text-slate-400">{publication.platform}{publication.publishedAt ? ` / ${formatPublishedDate(publication.publishedAt)}` : ""}</p>
                 </div>
-                <h3 className="mt-3 text-lg font-semibold leading-7 text-white">
-                  {publication.title}
-                </h3>
-                <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm">
-                  {publication.publishedAt ? (
-                    <time className="text-slate-400" dateTime={publication.publishedAt}>
-                      {formatPublishedDate(publication.publishedAt)}
-                    </time>
-                  ) : null}
-                  {project ? (
-                    <Link
-                      href={`/projects/${project.slug}/`}
-                      className="font-semibold text-cyan-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300 hover:text-cyan-100"
-                    >
-                      Related Project: {project.title}
-                    </Link>
-                  ) : null}
+                <div>
+                  <h3 className="text-lg font-semibold leading-7 text-white">{publication.title}</h3>
+                  {relatedProject ? <Link href={`/projects/${relatedProject.slug}/`} className="mt-2 inline-block text-sm text-cyan-200 underline decoration-cyan-300/50 underline-offset-4 hover:text-cyan-100">Related project: {relatedProject.title}</Link> : null}
                 </div>
-                <a
-                  href={publication.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-5 inline-flex border-b border-cyan-300 pb-1 text-sm font-semibold text-cyan-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300 hover:border-cyan-100 hover:text-cyan-100"
-                >
-                  Read article
-                </a>
+                <a href={publication.url} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-10 items-center justify-center border border-slate-600 px-4 text-sm font-semibold text-slate-100 transition-colors hover:border-cyan-200 hover:text-cyan-100">Read article</a>
               </li>
             );
           })}
         </ol>
 
-        <Link
-          href="/writing/"
-          className="mt-8 inline-flex border-b border-cyan-300 pb-1 text-sm font-semibold text-cyan-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-300 hover:border-cyan-100 hover:text-cyan-100"
-        >
-          View All Engineering Writing
-        </Link>
+        <Link href="/writing/" className="mt-8 inline-flex min-h-11 items-center border border-cyan-300 px-5 text-sm font-semibold text-cyan-100 transition-colors hover:bg-cyan-300 hover:text-slate-950">View All Engineering Writing</Link>
       </div>
     </section>
   );
