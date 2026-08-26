@@ -1,145 +1,83 @@
-<div align="center">
+# Surya Naga Sesank M
 
-# Naga Sesank
+Cloud Security Engineering portfolio focused on security architecture, AWS and Google Cloud, Terraform, DevSecOps, IAM, detection and incident response, security governance, and automation.
 
-### Cloud Security Engineer • Security Architecture • AWS • Terraform • DevSecOps
+## Portfolio
 
-<p>
-  <a href="https://nagasesank.github.io">🌐 Portfolio</a> •
-  <a href="https://www.linkedin.com/in/YOUR-LINKEDIN">💼 LinkedIn</a> •
-  <a href="https://github.com/nagasesank">💻 GitHub</a> •
-  <a href="https://hashnode.com/@YOUR-HASHNODE">✍️ Hashnode</a>
-</p>
+This repository contains the source for [nagasesank.github.io](https://nagasesank.github.io/), an evidence-based portfolio of cloud security engineering work. Each project links to its repository and a concise case study where available.
 
-</div>
+## Engineering Focus
 
----
+- Cloud security architecture across AWS and Google Cloud
+- Terraform and Infrastructure as Code
+- IAM, Zero Trust, and multi-account governance
+- Detection, incident response, and security automation
+- DevSecOps and reviewable engineering evidence
+- Security assurance informed by NIST, ISO 27001, HIPAA/HITRUST-aligned engineering, PCI DSS, and SOC 2
 
-# 👋 About Me
+Framework references describe engineering domains and do not represent compliance certification, attestation, or production assurance claims.
 
-Cloud Security Engineer specializing in AWS, Infrastructure as Code, Security Architecture, DevSecOps and AI-assisted security automation.
+## Flagship Engineering Projects
 
-I design and build production-style cloud security projects with a strong focus on:
+### [Enterprise Multi-Cloud WAF Evaluation Platform](https://nagasesank.github.io/projects/multicloud-waf-platform/)
 
-- AWS Security
-- Terraform
-- Web Application Firewall
-- Cloud Architecture
-- IAM
-- Detection & Response
-- DevSecOps
-- Security Automation
+**Status:** Validated
 
----
+A Terraform-led comparison of AWS WAF and Google Cloud Armor using equivalent cloud environments.
 
-# 🚀 Featured Projects
+[Repository](https://github.com/nagasesank/multicloud-waf-platform) | [Case study](https://nagasesank.github.io/projects/multicloud-waf-platform/)
 
-## Enterprise Multi-Cloud Web Application Firewall Evaluation Platform
+### [AI-Powered Polycloud Security Incident Response Platform](https://nagasesank.github.io/projects/ai-powered-polycloud-incident-response/)
 
-Production-style Terraform implementation comparing AWS WAF and Google Cloud Armor.
+**Status:** In Progress
 
-**Highlights**
+An AWS-first incident response architecture moving from repository design into Terraform implementation. Amazon Bedrock integration and attack simulation remain planned.
 
-- AWS WAF
-- Google Cloud Armor
-- Terraform Modules
-- ALB
-- Security Groups
-- Cloud Logging
-- Enterprise Architecture
+[Repository](https://github.com/nagasesank/AI-Powered-Polycloud-Security-Incident-Response-Platform) | [Case study](https://nagasesank.github.io/projects/ai-powered-polycloud-incident-response/)
 
-🔗 GitHub Repository
+### [AWS Multi-Account Zero-Trust Architecture Lab](https://nagasesank.github.io/projects/aws-zero-trust-org-lab/)
 
-🔗 Live Demo
+**Status:** Active Engineering
 
----
+A multi-account AWS landing-zone lab focused on governance, isolation, audit logging, and validation.
 
-## AI-Powered AWS Security Incident Triage & Response
+[Repository](https://github.com/nagasesank/aws-zero-trust-org-lab) | [Case study](https://nagasesank.github.io/projects/aws-zero-trust-org-lab/)
 
-Enterprise AI-assisted incident response platform.
+### [HIPAA/HITRUST-Aligned Healthcare Security Engineering Platform](https://nagasesank.github.io/projects/hipaa-hitrust-healthcare-security/)
 
-**Highlights**
+**Status:** In Progress
 
-- Amazon Bedrock
-- CloudTrail
-- EventBridge
-- Lambda
-- Step Functions
-- SNS
-- AI-assisted Decision Engine
+In-progress HIPAA/HITRUST-aligned security engineering for a synthetic healthcare workload. This is not a HIPAA compliance claim, HITRUST certification, attestation, or production healthcare system.
 
----
+[Repository](https://github.com/nagasesank/hipaa-hitrust-healthcare-security-project) | [Case study](https://nagasesank.github.io/projects/hipaa-hitrust-healthcare-security/)
 
-# 🏅 Certifications
+## Security Labs and Engineering Writing
 
-- AWS Certified Solutions Architect – Associate
+The [Friday Security Projects](https://nagasesank.github.io/#security-labs) are a seven-part hands-on engineering series. The [Engineering Writing hub](https://nagasesank.github.io/writing/) centralizes verified Hashnode, Medium, DEV, and LinkedIn publications without duplicating article records here.
+
+## Engineering Methodology
+
+Projects are documented through an evidence-driven workflow that can include design, Infrastructure as Code, deployment, validation, controlled failure testing, investigation, remediation, revalidation, evidence capture, and cleanup. Individual case studies describe the lifecycle steps supported by each project.
+
+## Technology
+
+AWS, Google Cloud, Terraform, TypeScript, Next.js, React, Tailwind CSS, GitHub Actions, and Git.
+
+## Certifications and Training
+
+Verified credentials represented in the portfolio:
+
 - ISO 27001 Lead Auditor
+- AWS Certified Solutions Architect - Associate
 - EC-Council Certified Ethical Hacker (CEH)
 - AWS Well-Architected Proficient
 
----
+Training is kept distinct from certification and is documented separately in the portfolio.
 
-# 🛠 Tech Stack
+## Writing and Profiles
 
-### Cloud
-
-AWS
-
-Google Cloud
-
-### Infrastructure as Code
-
-Terraform
-
-### Languages
-
-TypeScript
-
-Python
-
-### Frontend
-
-Next.js
-
-React
-
-Tailwind CSS
-
-### DevOps
-
-GitHub Actions
-
-Git
-
----
-
-# 📜 Training
-
-- Google Cloud Professional Cloud Architect
-- Palo Alto PCNSE
-- AWS CSPM
-- Azure CSPM
-
----
-
-# 🌐 Portfolio
-
-https://nagasesank.github.io
-
----
-
-# 📫 Contact
-
-LinkedIn
-
-GitHub
-
-Email
-
----
-
-<div align="center">
-
-Made with ❤️ using Next.js, TypeScript and Tailwind CSS
-
-</div>
+- [GitHub](https://github.com/nagasesank)
+- [LinkedIn](https://www.linkedin.com/in/suryasesank/)
+- [Hashnode](https://hashnode.com/@nagasesank)
+- [Medium](https://sesanknagamunukutla.medium.com/)
+- [DEV](https://dev.to/sesank_naga_m_01)
