@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import FeaturedProject from "@/components/FeaturedProject";
@@ -27,4 +29,3 @@ export default function Home() {
     </main>
   );
 }
-import type { Metadata } from "next";
