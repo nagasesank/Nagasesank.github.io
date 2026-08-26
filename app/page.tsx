@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import FeaturedProject from "@/components/FeaturedProject";
 import CoreSkills from "@/components/CoreSkills";
 import ProjectsGrid from "@/components/ProjectsGrid";
+import SecurityLabs from "@/components/SecurityLabs";
 import About from "@/components/About";
 import Certifications from "@/components/Certifications";
 import Contact from "@/components/Contact";
@@ -16,6 +17,7 @@ export default function Home() {
       <FeaturedProject />
       <CoreSkills />
       <ProjectsGrid />
+      <SecurityLabs />
       <About />
       <Certifications />
       <Contact />
