@@ -4,7 +4,7 @@ import { portfolioProjects } from "./project-data";
 import { publications } from "./publication-data";
 
 const featuredProject = portfolioProjects.find(
-  (project) => project.slug === "hipaa-hitrust-healthcare-security",
+  (project) => project.slug === "az-01-azure-workload-identity-security",
 );
 
 export default function FeaturedProject() {
@@ -35,7 +35,7 @@ export default function FeaturedProject() {
 
         <article className="grid border border-slate-700 bg-[#0b1725] lg:grid-cols-[1.1fr_0.9fr]">
           <div className="p-6 sm:p-8 lg:p-10">
-            <p className="font-mono text-xs text-cyan-200">PROJECT-04 / {featuredProject.category}</p>
+            <p className="font-mono text-xs text-cyan-200">FEATURED PROJECT / {featuredProject.category}</p>
             <h3 className="mt-4 max-w-3xl text-3xl font-semibold tracking-tight text-white sm:text-4xl">
               {featuredProject.title}
             </h3>
@@ -53,14 +53,14 @@ export default function FeaturedProject() {
               >
                 View Case Study
               </Link>
-              <a
+              {featuredProject.repository ? <a
                 href={featuredProject.repository}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex min-h-11 items-center justify-center border border-slate-500 px-5 text-sm font-semibold text-slate-100 transition-colors hover:border-cyan-200 hover:text-cyan-100"
               >
                 GitHub Repository
-              </a>
+              </a> : <span className="self-center text-sm text-slate-400">Repository pending</span>}
             </div>
 
             {relatedArticles.length > 0 ? (

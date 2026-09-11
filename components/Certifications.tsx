@@ -22,9 +22,9 @@ const featuredCertifications = [
     type: "Security Certification",
   },
   {
-    title: "AWS Well-Architected Proficient",
-    image: "/certifications/badges/aws-well-architected-proficient.png",
-    type: "AWS Specialty Badge",
+    title: "AWS Well-Architected Foundations",
+    image: "/certifications/certificates/aws-well-architected-foundations-certificate.png",
+    type: "AWS Training",
   },
 ];
 

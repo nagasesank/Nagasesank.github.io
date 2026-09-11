@@ -44,7 +44,7 @@ export default function ProjectConsole({ project, projectIndex, publications, pr
           </dl>
         </div>
         <div className="mt-7 flex flex-wrap gap-3">
-          <a href={project.repository} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center justify-center bg-cyan-300 px-5 text-sm font-semibold text-slate-950 transition-colors hover:bg-cyan-200">View Source Repository</a>
+          {project.repository ? <a href={project.repository} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center justify-center bg-cyan-300 px-5 text-sm font-semibold text-slate-950 transition-colors hover:bg-cyan-200">View Source Repository</a> : <span className="self-center text-sm text-slate-400">Repository pending</span>}
           <Link href="/#engineering-projects" className="inline-flex min-h-11 items-center justify-center border border-slate-600 px-5 text-sm font-semibold text-slate-100 transition-colors hover:border-cyan-200 hover:text-cyan-100">Back to Projects</Link>
         </div>
       </header>
@@ -64,7 +64,7 @@ export default function ProjectConsole({ project, projectIndex, publications, pr
 
       <section aria-labelledby="controls-heading" className="border-y border-slate-700 py-10">
         <div id="controls-heading"><SectionHeading number="CONTROL /" title="Controls in Scope" /></div>
-        <ul className="mt-6 flex flex-wrap gap-2.5">{project.controls.map((control) => <li key={control} className="border border-slate-600 bg-[#0b1725] px-3 py-2 text-sm text-slate-100">{control}</li>)}</ul>
+        {project.controls.length > 0 ? <ul className="mt-6 flex flex-wrap gap-2.5">{project.controls.map((control) => <li key={control} className="border border-slate-600 bg-[#0b1725] px-3 py-2 text-sm text-slate-100">{control}</li>)}</ul> : <p className="mt-6 text-slate-400">Control scope pending publication</p>}
       </section>
 
       <div className="grid gap-5 py-10 lg:grid-cols-2">
@@ -81,7 +81,7 @@ export default function ProjectConsole({ project, projectIndex, publications, pr
 
       <section aria-labelledby="lifecycle-heading" className="border-t border-slate-700 py-10">
         <div id="lifecycle-heading"><SectionHeading number="WORKFLOW /" title="Engineering Lifecycle" /></div>
-        <ol className="mt-6 grid border-l border-t border-slate-700 sm:grid-cols-2 xl:grid-cols-4">{project.lifecycle.map((step, index) => <li key={step} className="border-b border-r border-slate-700 bg-[#0b1725] p-4"><span className="font-mono text-xs text-cyan-200">{String(index + 1).padStart(2, "0")}</span><span className="mt-3 block text-sm font-semibold text-slate-100">{step}</span></li>)}</ol>
+        {project.lifecycle.length > 0 ? <ol className="mt-6 grid border-l border-t border-slate-700 sm:grid-cols-2 xl:grid-cols-4">{project.lifecycle.map((step, index) => <li key={step} className="border-b border-r border-slate-700 bg-[#0b1725] p-4"><span className="font-mono text-xs text-cyan-200">{String(index + 1).padStart(2, "0")}</span><span className="mt-3 block text-sm font-semibold text-slate-100">{step}</span></li>)}</ol> : <p className="mt-6 text-slate-400">Lifecycle details pending publication</p>}
       </section>
 
       <section aria-labelledby="limitations-heading" className="border-y border-slate-700 bg-[#0b1725] px-5 py-8 sm:px-7 sm:py-9">
@@ -91,7 +91,7 @@ export default function ProjectConsole({ project, projectIndex, publications, pr
 
       {publications.length > 0 ? <section aria-labelledby="publications-heading" className="py-10"><div id="publications-heading"><SectionHeading number="RELATED /" title="Published Engineering Write-ups" /></div><div className="mt-6 grid gap-4 lg:grid-cols-2">{publications.map((publication) => <article key={publication.url} className="border border-slate-700 bg-[#0b1725] p-5"><div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs"><span className="font-mono uppercase tracking-[0.14em] text-cyan-200">{publication.platform}</span>{publication.publishedAt ? <span className="text-slate-400">{formatPublishedDate(publication.publishedAt)}</span> : null}</div>{publication.series ? <p className="mt-3 text-xs text-slate-400">{publication.series}{publication.part ? ` / Part ${publication.part}` : ""}</p> : null}<a href={publication.url} target="_blank" rel="noopener noreferrer" className="mt-2 block text-lg font-semibold leading-7 text-white underline decoration-slate-600 underline-offset-4 hover:text-cyan-100 hover:decoration-cyan-300">{publication.title}</a></article>)}</div></section> : null}
 
-      <section aria-label="Project repository action" className="border-t border-slate-700 py-8"><a href={project.repository} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center justify-center border border-cyan-300 px-5 text-sm font-semibold text-cyan-100 transition-colors hover:bg-cyan-300 hover:text-slate-950">View Source Repository</a></section>
+      {project.repository ? <section aria-label="Project repository action" className="border-t border-slate-700 py-8"><a href={project.repository} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center justify-center border border-cyan-300 px-5 text-sm font-semibold text-cyan-100 transition-colors hover:bg-cyan-300 hover:text-slate-950">View Source Repository</a></section> : null}
       <nav aria-label="Project navigation" className="grid gap-4 border-t border-slate-700 pt-8 sm:grid-cols-2">{previousProject ? <Link href={`/projects/${previousProject.slug}/`} className="min-h-24 border border-slate-700 bg-[#0b1725] p-5 transition-colors hover:border-cyan-300"><span className="text-sm text-cyan-200">← Previous Project</span><span className="mt-2 block font-semibold text-white">{previousProject.title}</span></Link> : <div aria-hidden="true" />}{nextProject ? <Link href={`/projects/${nextProject.slug}/`} className="min-h-24 border border-slate-700 bg-[#0b1725] p-5 text-right transition-colors hover:border-cyan-300"><span className="text-sm text-cyan-200">Next Project →</span><span className="mt-2 block font-semibold text-white">{nextProject.title}</span></Link> : <div aria-hidden="true" />}</nav>
     </article>
   );

@@ -6,9 +6,9 @@ const engineeringMethod = [
 ];
 
 const seniorCapabilities = [
-  "AWS and Google Cloud",
+  "AWS / Microsoft Azure / Google Cloud",
   "Terraform / Infrastructure as Code",
-  "IAM / Zero Trust",
+  "AWS IAM / Microsoft Entra ID / Zero Trust",
   "Detection / Incident Response",
   "DevSecOps / Security Automation",
   "Governance / Security Assurance",
