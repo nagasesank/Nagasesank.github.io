@@ -1,7 +1,7 @@
 const capabilityStack = [
-  { domain: "Cloud Platforms", detail: "Cloud security engineering across AWS and Google Cloud.", practices: ["AWS", "Google Cloud"] },
+  { domain: "Cloud Platforms", detail: "Cloud security engineering across AWS, Microsoft Azure, and Google Cloud.", practices: ["AWS", "Microsoft Azure", "Google Cloud"] },
   { domain: "Infrastructure Engineering", detail: "Reviewable infrastructure delivery and automation practices.", practices: ["Terraform", "Infrastructure as Code", "Git workflows"] },
-  { domain: "Identity & Zero Trust", detail: "Identity-centered access control and accountable cloud boundaries.", practices: ["IAM", "Permission boundaries", "SCPs", "Zero Trust"] },
+  { domain: "Identity & Zero Trust", detail: "Identity-centered access control and accountable cloud boundaries.", practices: ["AWS IAM", "Microsoft Entra ID", "Azure RBAC", "Workload Identity Federation", "Permission boundaries", "SCPs", "Zero Trust"] },
   { domain: "Detection & Incident Response", detail: "Detection requirements and response architecture with human review where needed.", practices: ["CloudTrail", "GuardDuty", "EventBridge", "Investigation"] },
   { domain: "Application & Edge Security", detail: "Layer 7 protection and network security controls across cloud environments.", practices: ["AWS WAF", "Google Cloud Armor", "Network security"] },
   { domain: "Security Architecture & Governance", detail: "Control boundaries, multi-account architecture, and framework-aware engineering context.", practices: ["Governance controls", "NIST", "ISO 27001", "HIPAA/HITRUST-aligned engineering", "PCI DSS", "SOC 2"] },
