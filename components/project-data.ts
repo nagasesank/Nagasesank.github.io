@@ -8,7 +8,7 @@ export type PortfolioProject = {
   delivery: string;
   evidence: string;
   status: "Validated" | "In Progress" | "Active Engineering";
-  repository: string;
+  repository?: string;
   summary: string;
   architecture: string;
   implementation: string;
@@ -95,5 +95,40 @@ export const portfolioProjects: PortfolioProject[] = [
     validation: "AWS CLI and console validation with controlled failures, investigation, remediation, revalidation, teardown, and evidence records.",
     limitations: "This is a technical engineering exercise using synthetic healthcare data. It is not a compliance claim, certification, attestation, or production healthcare system.",
     lifecycle: ["Design", "Implement", "Deploy", "Validate", "Inject controlled failure", "Investigate", "Remediate", "Revalidate", "Destroy", "Document evidence"],
+  },
+  {
+    slug: "az-01-azure-workload-identity-security",
+    title: "AZ-01 — Azure Workload Identity Attack & Secretless Federation Lab",
+    category: "Cloud identity security",
+    objective: "Validate a bounded workload identity attack path and remediate credential and authorization risks using secretless federation and reduced Azure RBAC scope.",
+    platforms: ["Microsoft Azure", "Microsoft Entra ID", "GitHub Actions"],
+    controls: ["Microsoft Entra ID", "Azure RBAC", "GitHub OIDC", "Workload Identity Federation", "Terraform", "Least privilege"],
+    delivery: "Terraform, controlled Azure CLI validation, and GitHub Actions static security CI",
+    evidence: "Sanitized baseline, attack, federation, post-remediation, teardown, and CI validation records",
+    status: "Validated",
+    repository: "https://github.com/nagasesank/AZ-01-azure-workload-identity-security-lab",
+    summary: "A validated Azure lab tracing a deliberately vulnerable long-lived workload credential and excessive RBAC through controlled attack validation, secretless federation remediation, revalidation, and verified teardown.",
+    architecture: "A Microsoft Entra workload identity accesses synthetic Azure Storage targets, with a separate project-owned negative control. A later validation deployment uses GitHub OIDC federation and container-scoped Storage Blob Data Reader access.",
+    implementation: "Terraform defines the vulnerable identity baseline and later GitHub OIDC + Microsoft Entra workload identity federation remediation. Least-privilege Azure RBAC reduction limits the intended read path to one synthetic-data container. DevSecOps hardening adds Terraform static validation, IaC scanning, and current-content secret scanning without Azure authentication.",
+    validation: "Bounded Azure RBAC attack-path tests use synthetic data and project-owned targets only. Positive post-remediation tests validate OIDC authentication and intended blob reads; negative tests record explicit denials for tested management-plane actions, writes, negative-control access, and account-level container listing. Terraform destroy and bounded cleanup verification document teardown; controlled CI failure validation checks the formatting gate.",
+    limitations: "Results apply only to tested actions and known project-owned targets. Baseline and remediated deployments used separate validation windows; the retired credential was not replayed in place. The Azure environment is destroyed. This lab does not establish universal least privilege, penetration-test coverage, production suitability, or broader Azure security assurance.",
+    lifecycle: ["Design", "Deploy", "Validate vulnerable baseline", "Controlled attack validation", "Capture evidence", "Remediate", "Revalidate", "Capture remediation evidence", "Destroy", "Verify cleanup", "Harden CI"],
+  },
+  {
+    slug: "az-02-azure-enterprise-security-architecture",
+    title: "AZ-02 — Azure Cloud Security Architecture Review & Controlled Remediation Lab",
+    category: "Azure security architecture",
+    objective: "Develop an Azure cloud security architecture review and controlled remediation lab.",
+    platforms: ["Microsoft Azure"],
+    controls: [],
+    delivery: "In progress; delivery details pending publication",
+    evidence: "Validation evidence pending publication",
+    status: "In Progress",
+    summary: "An in-progress Azure cloud security architecture review and controlled remediation lab. Repository and engineering records are pending publication.",
+    architecture: "Architecture details are pending publication.",
+    implementation: "Implementation details and control scope are pending publication.",
+    validation: "No completed validation is claimed; validation methods and results are pending publication.",
+    limitations: "The repository is not publicly available. Implementation, controls, and validation evidence are not represented as complete.",
+    lifecycle: [],
   },
 ];

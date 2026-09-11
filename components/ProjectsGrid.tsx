@@ -12,7 +12,7 @@ export default function ProjectsGrid() {
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-200">Engineering projects</p>
             <h2 className="mt-3 text-3xl font-semibold tracking-tight text-white sm:text-4xl">Flagship project records</h2>
           </div>
-          <p className="max-w-2xl text-lg leading-8 text-slate-300">Four focused case studies with traceable objectives, controls, delivery methods, and evidence types.</p>
+          <p className="max-w-2xl text-lg leading-8 text-slate-300">Evidence-backed cloud security engineering case studies with traceable objectives, controls, delivery methods, and validation records.</p>
         </div>
 
         <div className="mt-8 grid gap-5 lg:grid-cols-2">
@@ -39,15 +39,15 @@ export default function ProjectsGrid() {
                 </dl>
                 <div className="mt-5">
                   <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-400">Key controls</p>
-                  <ul className="mt-3 flex flex-wrap gap-2">
+                  {project.controls.length > 0 ? <ul className="mt-3 flex flex-wrap gap-2">
                     {project.controls.map((control) => <li key={control} className="border border-slate-600 px-2 py-1 text-xs text-slate-300">{control}</li>)}
-                  </ul>
+                  </ul> : <p className="mt-3 text-sm text-slate-400">Control scope pending publication</p>}
                 </div>
                 <p className="mt-5 text-sm leading-6 text-slate-400"><span className="font-semibold text-slate-300">Evidence:</span> {project.evidence}</p>
                 {articleCount > 0 ? <p className="mt-3 font-mono text-xs text-cyan-200">{articleCount} Published Article{articleCount === 1 ? "" : "s"}</p> : null}
                 <div className="mt-7 flex flex-wrap gap-x-5 gap-y-3 border-t border-slate-700 pt-5 text-sm font-semibold">
                   <Link href={`/projects/${project.slug}/`} className="text-cyan-200 underline decoration-cyan-300/50 underline-offset-4 hover:text-cyan-100">View case study</Link>
-                  <a href={project.repository} target="_blank" rel="noopener noreferrer" className="text-slate-200 underline decoration-slate-500 underline-offset-4 hover:text-cyan-100">GitHub repository</a>
+                  {project.repository ? <a href={project.repository} target="_blank" rel="noopener noreferrer" className="text-slate-200 underline decoration-slate-500 underline-offset-4 hover:text-cyan-100">GitHub repository</a> : <span className="text-slate-400">Repository pending</span>}
                 </div>
               </article>
             );

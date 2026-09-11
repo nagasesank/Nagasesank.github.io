@@ -6,13 +6,13 @@ const credentials = [
   "AWS Certified Solutions Architect - Associate",
   "ISO 27001 Lead Auditor",
   "CEH",
-  "AWS Well-Architected Proficient",
+  "AWS Well-Architected Foundations",
 ];
 
 const capabilitySignals = [
   ["Architecture", "Security architecture and governance"],
   ["Infrastructure", "Terraform and Infrastructure as Code"],
-  ["Identity", "IAM and Zero Trust control design"],
+  ["Identity", "AWS IAM / Microsoft Entra ID / Zero Trust / Workload Identity"],
   ["Response", "Detection and incident response engineering"],
 ];
 
@@ -34,13 +34,13 @@ export default function Hero() {
             </p>
             <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300">
               Senior cloud security engineering with 10+ years in cybersecurity,
-              across AWS and Google Cloud. Focused on Terraform, IAM, Zero Trust,
+              across AWS, Microsoft Azure, and Google Cloud. Focused on Terraform, IAM, Zero Trust,
               detection, incident response, security automation, and governance.
             </p>
             <p className="mt-5 font-mono text-sm leading-7 text-slate-400">
-              AWS <span aria-hidden="true">/</span> Google Cloud <span aria-hidden="true">/</span> Terraform
+              AWS <span aria-hidden="true">/</span> Microsoft Azure <span aria-hidden="true">/</span> Google Cloud <span aria-hidden="true">/</span> Terraform
               <br />
-              IAM <span aria-hidden="true">/</span> Zero Trust <span aria-hidden="true">/</span> Incident Response
+              AWS IAM <span aria-hidden="true">/</span> Microsoft Entra ID <span aria-hidden="true">/</span> Zero Trust <span aria-hidden="true">/</span> Workload Identity
             </p>
             <div className="mt-9 flex flex-wrap gap-3">
               <Link href="/#engineering-projects" className="inline-flex min-h-11 items-center justify-center bg-cyan-300 px-5 text-sm font-semibold text-slate-950 transition-colors hover:bg-cyan-200">
