@@ -23,9 +23,9 @@ const featuredCertifications = [
     type: "Cybersecurity",
   },
   {
-    title: "AWS Well-Architected Proficient",
-    image: "/certifications/badges/aws-well-architected-proficient.png",
-    type: "AWS Well-Architected",
+    title: "AWS Well-Architected Foundations",
+    image: "/certifications/certificates/aws-well-architected-foundations-certificate.png",
+    type: "AWS Training",
   },
 ];
 
@@ -39,11 +39,11 @@ export default function FeaturedCertifications() {
         </div>
 
         <h2 className="mt-6 text-4xl font-bold tracking-tight text-white">
-          Featured Certifications
+          Featured Credentials
         </h2>
 
         <p className="mt-4 max-w-3xl text-lg text-slate-400">
-          Selected industry certifications relevant to cloud security,
+          Selected certifications and training relevant to cloud security,
           architecture, governance, and cybersecurity.
         </p>
       </div>
