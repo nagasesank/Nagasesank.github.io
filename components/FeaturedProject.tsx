@@ -4,7 +4,7 @@ import { portfolioProjects } from "./project-data";
 import { publications } from "./publication-data";
 
 const featuredProject = portfolioProjects.find(
-  (project) => project.slug === "az-01-azure-workload-identity-security",
+  (project) => project.slug === "hipaa-hitrust-healthcare-security",
 );
 
 export default function FeaturedProject() {

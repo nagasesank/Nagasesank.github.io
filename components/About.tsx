@@ -22,7 +22,7 @@ export default function About() {
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-200">Engineering evidence</p>
             <h2 className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl">Senior cloud security engineering, designed to be reviewed.</h2>
-            <p className="mt-5 max-w-xl text-lg leading-8 text-slate-300">With 10+ years in cybersecurity, the work centers on cloud security architecture, infrastructure automation, identity, governance, detection, and incident-response engineering. Supporting records emphasize practical controls, validation, and clear limits.</p>
+            <p className="mt-5 max-w-xl text-lg leading-8 text-slate-300">With 8+ years in cybersecurity, the work centers on cloud security architecture, infrastructure automation, identity, governance, detection, and incident-response engineering. Supporting records emphasize practical controls, validation, and clear limits.</p>
             <div className="mt-6 border-y border-slate-700 py-5">
               <p className="text-xs font-semibold uppercase tracking-[0.14em] text-slate-400">Engineering scope</p>
               <ul className="mt-4 grid gap-2 sm:grid-cols-2">
