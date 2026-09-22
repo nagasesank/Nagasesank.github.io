@@ -1,5 +1,0 @@
-import Image from "next/image";
-
-export default function CoreSkills() {
-  return <section id="capability-stack" aria-labelledby="capability-stack-heading" className="border-b border-slate-800 bg-[#091521] py-16 sm:py-20"><div className="mx-auto max-w-screen-2xl px-5 sm:px-8 lg:px-16"><div className="grid gap-8 border-b border-slate-700 pb-9 lg:grid-cols-[.85fr_1.15fr] lg:items-end"><div><p className="text-xs font-semibold uppercase tracking-[.2em] text-cyan-200">Core security capabilities</p><h2 id="capability-stack-heading" className="mt-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl">Cloud Security Capability Stack</h2></div><p className="max-w-2xl text-lg leading-8 text-slate-300">A compact view of cloud platforms, engineering controls, assurance context, and security automation practice.</p></div><div className="mt-8 overflow-hidden border border-slate-700 bg-[#0b1725]"><Image src="/images/cloud-security-capability-stack.svg" alt="Cloud security capability stack across platforms, security controls, DevSecOps, detection, governance, and AI security automation." width={1100} height={650} className="h-auto w-full" /></div></div></section>;
-}
