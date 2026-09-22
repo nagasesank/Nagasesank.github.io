@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import FeaturedProject from "@/components/FeaturedProject";
-import CoreSkills from "@/components/CoreSkills";
 import ProjectsGrid from "@/components/ProjectsGrid";
 import SecurityLabs from "@/components/SecurityLabs";
 import About from "@/components/About";
@@ -19,7 +18,6 @@ export default function Home() {
       <Navbar />
       <Hero />
       <FeaturedProject />
-      <CoreSkills />
       <ProjectsGrid />
       <SecurityLabs />
       <About />
