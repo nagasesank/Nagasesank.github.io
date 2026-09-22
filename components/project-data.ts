@@ -2,6 +2,7 @@ export type PortfolioProject = {
   slug: string;
   title: string;
   category: string;
+  domain: "AWS" | "Azure" | "AI";
   objective: string;
   platforms: string[];
   controls: string[];
@@ -22,6 +23,7 @@ export const portfolioProjects: PortfolioProject[] = [
     slug: "multicloud-waf-platform",
     title: "Enterprise Multi-Cloud WAF Evaluation Platform",
     category: "Web application protection",
+    domain: "AWS",
     objective:
       "Compare equivalent AWS WAF and Google Cloud Armor deployments through reusable Terraform.",
     platforms: ["AWS", "Google Cloud"],
@@ -41,6 +43,7 @@ export const portfolioProjects: PortfolioProject[] = [
     slug: "ai-powered-polycloud-incident-response",
     title: "AI-Powered Polycloud Security Incident Response Platform",
     category: "Incident response automation",
+    domain: "AI",
     objective:
       "Prepare an AWS-first, AI-assisted incident response architecture for reviewable Terraform delivery.",
     platforms: ["AWS"],
@@ -61,6 +64,7 @@ export const portfolioProjects: PortfolioProject[] = [
     slug: "aws-zero-trust-org-lab",
     title: "AWS Multi-Account Zero-Trust Architecture Lab",
     category: "Cloud governance",
+    domain: "AWS",
     objective:
       "Design and validate a secure multi-account AWS landing zone with preventative and detective controls.",
     platforms: ["AWS", "AWS Organizations"],
@@ -80,6 +84,7 @@ export const portfolioProjects: PortfolioProject[] = [
     slug: "hipaa-hitrust-healthcare-security",
     title: "HIPAA/HITRUST-Aligned Healthcare Security Engineering Platform",
     category: "Healthcare security engineering",
+    domain: "AWS",
     objective:
       "Implement security controls for a synthetic healthcare workload aligned to selected HIPAA and HITRUST control objectives.",
     platforms: ["AWS", "Google Cloud"],
@@ -100,6 +105,7 @@ export const portfolioProjects: PortfolioProject[] = [
     slug: "az-01-azure-workload-identity-security",
     title: "AZ-01 — Azure Workload Identity Attack & Secretless Federation Lab",
     category: "Cloud identity security",
+    domain: "Azure",
     objective: "Validate a bounded workload identity attack path and remediate credential and authorization risks using secretless federation and reduced Azure RBAC scope.",
     platforms: ["Microsoft Azure", "Microsoft Entra ID", "GitHub Actions"],
     controls: ["Microsoft Entra ID", "Azure RBAC", "GitHub OIDC", "Workload Identity Federation", "Terraform", "Least privilege"],
@@ -118,17 +124,19 @@ export const portfolioProjects: PortfolioProject[] = [
     slug: "az-02-azure-enterprise-security-architecture",
     title: "AZ-02 — Azure Cloud Security Architecture Review & Controlled Remediation Lab",
     category: "Azure security architecture",
-    objective: "Develop an Azure cloud security architecture review and controlled remediation lab.",
-    platforms: ["Microsoft Azure"],
-    controls: [],
-    delivery: "In progress; delivery details pending publication",
-    evidence: "Validation evidence pending publication",
-    status: "In Progress",
-    summary: "An in-progress Azure cloud security architecture review and controlled remediation lab. Repository and engineering records are pending publication.",
-    architecture: "Architecture details are pending publication.",
-    implementation: "Implementation details and control scope are pending publication.",
-    validation: "No completed validation is claimed; validation methods and results are pending publication.",
-    limitations: "The repository is not publicly available. Implementation, controls, and validation evidence are not represented as complete.",
-    lifecycle: [],
+    domain: "Azure",
+    objective: "Assess an intentionally imperfect Azure environment, identify architecture and control gaps, implement selected remediations, validate outcomes, reassess residual risk, and complete controlled teardown.",
+    platforms: ["Microsoft Azure", "Microsoft Entra ID"],
+    controls: ["Azure Policy", "Azure RBAC", "Managed Identity", "Azure Firewall", "Private Endpoint", "Private DNS", "Azure Key Vault", "Azure Storage", "Log Analytics", "Microsoft Defender for Cloud", "Container Apps Authentication"],
+    delivery: "Evidence-driven assessment, controlled remediation, validation, residual-risk analysis, and documented teardown",
+    evidence: "Architecture review, risk register, controlled validation, remediation evidence, residual-risk assessment, cleanup verification, MCSB traceability, and multicloud architectural mapping",
+    status: "Validated",
+    repository: "https://github.com/nagasesank/AZ-02-azure-enterprise-security-architecture",
+    summary: "A bounded Azure cloud-security architecture assessment and controlled remediation lab covering governance, identity, network and private access, logging, workload authentication, residual risk, secure teardown, MCSB traceability, and multicloud architecture mapping.",
+    architecture: "Hub/spoke Azure lab with Azure Firewall, Container Apps, Storage, Key Vault, Azure Policy, Microsoft Entra identity, Azure RBAC, Private Endpoint/Private DNS, Log Analytics, and Defender for Cloud posture capabilities.",
+    implementation: "Selected remediations included resource-group Azure Policy guardrails, managed-identity privilege reduction, Storage and Key Vault private access, Key Vault audit logging, workload authentication, and documented network segmentation/inspection configuration.",
+    validation: "Evidence included controlled policy denial, authenticated/unauthenticated access checks, private-path reachability, audit-log queries, current-state revalidation, residual-risk reassessment, and scoped teardown verification.",
+    limitations: "Runtime Azure Firewall traversal and effective packet-path behavior were not proven. R-003 remains Open with residual risk Not assessed; R-010 remains Open at 9 — Medium. No successful Key Vault secret retrieval or Storage Blob data operation was proven; Storage private endpoint coverage was Blob only. Inherited permissions were not exhaustively assessed, granular application authorization was not implemented, and foundational CSPM did not represent full Defender workload protection. Project completion does not imply production readiness or compliance.",
+    lifecycle: ["Assessment", "Architecture Review", "Risk Identification", "Control Gap Analysis", "Target-State Design", "Implement", "Validate", "Controlled Failure", "Investigate", "Remediate", "Revalidate", "Residual Risk", "Roadmap", "Cleanup", "DevSecOps Design", "MCSB Mapping", "Multicloud Mapping", "Closeout"],
   },
 ];

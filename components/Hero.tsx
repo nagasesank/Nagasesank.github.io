@@ -2,11 +2,12 @@ import Image from "next/image";
 import Link from "next/link";
 
 const credentials = [
-  "10+ Years Cybersecurity",
-  "AWS Certified Solutions Architect - Associate",
-  "ISO 27001 Lead Auditor",
-  "CEH",
-  "AWS Well-Architected Foundations",
+  "8+ Years Cybersecurity",
+  "AWS — Certified Solutions Architect – Associate",
+  "Microsoft Azure — Security Engineering / Entra ID / Azure RBAC",
+  "Google Cloud — Professional Cloud Architect",
+  "AI Security — GenAI Cybersecurity: OWASP & MITRE ATLAS",
+  "Governance — ISO 27001 Lead Auditor",
 ];
 
 const capabilitySignals = [
@@ -33,7 +34,7 @@ export default function Hero() {
               Security Architecture <span aria-hidden="true">/</span> DevSecOps
             </p>
             <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300">
-              Senior cloud security engineering with 10+ years in cybersecurity,
+              Senior cloud security engineering with 8+ years in cybersecurity,
               across AWS, Microsoft Azure, and Google Cloud. Focused on Terraform, IAM, Zero Trust,
               detection, incident response, security automation, and governance.
             </p>
@@ -67,13 +68,13 @@ export default function Hero() {
                 className="object-cover object-center"
               />
             </div>
-            <h2 id="identity-panel-heading" className="mt-5 text-xl font-semibold text-white">Security Architecture Console</h2>
-            <p className="mt-2 text-sm leading-6 text-slate-300">Cloud security architecture, DevSecOps, and evidence-oriented engineering.</p>
+            <h2 id="identity-panel-heading" className="mt-5 text-xl font-semibold text-white">Security Researcher</h2>
+            <p className="mt-2 text-sm leading-6 text-slate-300">Cloud security research, architecture, DevSecOps, and evidence-oriented engineering.</p>
           </aside>
         </div>
 
-        <ul aria-label="Professional credentials" className="mt-12 grid border-l border-t border-slate-700 bg-[#0b1725]/80 sm:grid-cols-2 lg:mt-16 lg:grid-cols-5">
-          {credentials.map((credential, index) => <li key={credential} className="border-b border-r border-slate-700 p-4 lg:border-b-0"><p className="font-mono text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-slate-500">Credential {String(index + 1).padStart(2, "0")}</p><p className="mt-3 text-sm font-semibold leading-6 text-slate-100">{credential}</p></li>)}
+        <ul aria-label="Professional cloud and security signals" className="mt-12 grid border-l border-t border-slate-700 bg-[#0b1725]/80 sm:grid-cols-2 md:grid-cols-3 lg:mt-16 lg:grid-cols-6">
+          {credentials.map((credential, index) => <li key={credential} className="border-b border-r border-slate-700 p-4"><p className="font-mono text-[0.65rem] font-semibold uppercase tracking-[0.16em] text-slate-500">Signal {String(index + 1).padStart(2, "0")}</p><p className="mt-3 text-sm font-semibold leading-6 text-slate-100">{credential}</p></li>)}
         </ul>
 
         <div id="capabilities" aria-label="Core cloud security capabilities" className="mt-5 grid border border-slate-700 bg-[#0b1725]/80 sm:grid-cols-2 lg:grid-cols-4">
