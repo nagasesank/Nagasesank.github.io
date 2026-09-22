@@ -1,5 +1,69 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 650" role="img" aria-labelledby="title desc">
-  <title id="title">Cloud Security Capability Stack</title><desc id="desc">Six grouped cloud security capability domains.</desc>
-  <rect width="1100" height="650" fill="#0b1725"/>
-  <g font-family="Arial, sans-serif" fill="#dce8f1"><g fill="#67e8f9" font-size="15"><text x="45" y="55">CLOUD PLATFORMS</text><text x="405" y="55">CLOUD SECURITY</text><text x="760" y="55">DEVSECOPS / IAC</text><text x="45" y="300">DETECTION / MONITORING</text><text x="405" y="300">GOVERNANCE / ASSURANCE</text><text x="760" y="300">AI / SECURITY AUTOMATION</text></g><g font-size="18"><text x="45" y="95">AWS · Microsoft Azure · Google Cloud</text><text x="405" y="95">IAM · Entra ID · Azure RBAC · Zero Trust</text><text x="405" y="125">OIDC · Workload Identity · SCPs</text><text x="405" y="155">Network Security · AWS WAF · Cloud Armor</text><text x="760" y="95">Terraform · Infrastructure as Code</text><text x="760" y="125">Policy as Code · Git · GitHub Actions</text><text x="760" y="155">Validation · Remediation · Revalidation</text><text x="45" y="340">CloudTrail · GuardDuty · EventBridge</text><text x="45" y="370">Audit Logging · Investigation · Incident Response</text><text x="405" y="340">Governance Controls · NIST · ISO 27001</text><text x="405" y="370">HIPAA/HITRUST-Aligned Engineering</text><text x="405" y="400">PCI DSS · SOC 2 · Engineering Evidence</text><text x="760" y="340">Security Automation</text><text x="760" y="370">AI-Assisted Incident Triage — Learning Focus</text><text x="760" y="400">Amazon Bedrock Integration — Planned Work</text></g><g stroke="#20364b" fill="none"><rect x="25" y="25" width="320" height="200"/><rect x="385" y="25" width="320" height="200"/><rect x="740" y="25" width="330" height="200"/><rect x="25" y="270" width="320" height="200"/><rect x="385" y="270" width="320" height="200"/><rect x="740" y="270" width="330" height="200"/></g><text x="45" y="575" font-size="16" fill="#94a3b8">Framework references describe engineering context, not organizational compliance or attestation.</text></g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 760" role="img" aria-labelledby="title desc">
+  <title id="title">Cloud Security Capability Stack</title>
+  <desc id="desc">Six grouped cloud security capability domains covering platforms, cloud security, infrastructure automation, detection, governance, and AI security automation.</desc>
+  <rect width="1100" height="760" fill="#0b1725"/>
+  <g font-family="Arial, sans-serif">
+    <g fill="#0e1e2f" stroke="#20364b" stroke-width="2">
+      <rect x="30" y="30" width="510" height="185"/>
+      <rect x="560" y="30" width="510" height="185"/>
+      <rect x="30" y="235" width="510" height="185"/>
+      <rect x="560" y="235" width="510" height="185"/>
+      <rect x="30" y="440" width="510" height="185"/>
+      <rect x="560" y="440" width="510" height="185"/>
+    </g>
+
+    <g fill="#67e8f9" font-size="15" font-weight="700" letter-spacing="1.5">
+      <text x="58" y="67">CLOUD PLATFORMS</text>
+      <text x="588" y="67">CLOUD SECURITY</text>
+      <text x="58" y="272">DEVSECOPS / IAC</text>
+      <text x="588" y="272">DETECTION / MONITORING</text>
+      <text x="58" y="477">GOVERNANCE / SECURITY ASSURANCE</text>
+      <text x="588" y="477">AI / SECURITY AUTOMATION</text>
+    </g>
+
+    <g fill="#dce8f1" font-size="16">
+      <text x="58" y="111">
+        <tspan x="58" dy="0">AWS</tspan>
+        <tspan x="58" dy="28">Microsoft Azure</tspan>
+        <tspan x="58" dy="28">Google Cloud</tspan>
+      </text>
+
+      <text x="588" y="111">
+        <tspan x="588" dy="0">IAM / Entra ID / Azure RBAC</tspan>
+        <tspan x="588" dy="28">Zero Trust / OIDC / Workload Identity</tspan>
+        <tspan x="588" dy="28">SCPs / Network Security</tspan>
+        <tspan x="588" dy="28">AWS WAF / Cloud Armor</tspan>
+      </text>
+
+      <text x="58" y="316">
+        <tspan x="58" dy="0">Terraform / Infrastructure as Code</tspan>
+        <tspan x="58" dy="28">Policy as Code / Git / GitHub Actions</tspan>
+        <tspan x="58" dy="28">Validation / Remediation / Revalidation</tspan>
+      </text>
+
+      <text x="588" y="316">
+        <tspan x="588" dy="0">CloudTrail / GuardDuty / EventBridge</tspan>
+        <tspan x="588" dy="28">Audit Logging / Investigation</tspan>
+        <tspan x="588" dy="28">Incident Response</tspan>
+      </text>
+
+      <text x="58" y="521">
+        <tspan x="58" dy="0">Governance Controls / NIST / ISO 27001</tspan>
+        <tspan x="58" dy="28">HIPAA/HITRUST-Aligned Engineering</tspan>
+        <tspan x="58" dy="28">PCI DSS / SOC 2 / Engineering Evidence</tspan>
+      </text>
+
+      <text x="588" y="517">
+        <tspan x="588" dy="0">Security Automation</tspan>
+        <tspan x="588" dy="24">AI-Assisted Incident Triage</tspan>
+        <tspan x="588" dy="24">Learning Focus</tspan>
+        <tspan x="588" dy="24">Amazon Bedrock Integration</tspan>
+        <tspan x="588" dy="24">Planned Work</tspan>
+      </text>
+    </g>
+  </g>
+  <line x1="30" y1="674" x2="1070" y2="674" stroke="#20364b" stroke-width="2"/>
+  <text x="58" y="713" font-family="Arial, sans-serif" font-size="16" fill="#94a3b8">
+    Framework references describe engineering context, not organizational compliance or attestation.
+  </text>
 </svg>
